@@ -1,43 +1,66 @@
 # 🧑🏼‍🌾 면접 질문 정리
 
-해당 저장소는 신입 개발자 또는 기술 면접 준비를 위한 질문들을 정리하고 학습하는 곳입니다.  
-본 자료는 [F-Lab 블로그](https://f-lab.kr/blog/java-backend-interview-1)에서 제공한 내용을 참고하여 작성하였습니다.
+이 저장소는 신입 개발자 및 기술 면접 준비를 위한 질문들을 정리하고 학습하는 공간입니다.  
+자료는 [F-Lab 블로그](https://f-lab.kr/blog/java-backend-interview-1)와 [Careerly](https://careerly.co.kr)의 내용을 참고하여 작성하였습니다.
 
-✨ 해당 저장소에 포함된 내용은 제가 직접 공부한 내용을 바탕으로 정리한 것이기 때문에, 정확하지 않을 수 있습니다.  
+✨ 이 저장소에 포함된 내용은 제가 직접 공부한 내용을 바탕으로 정리한 것이므로, 정확하지 않을 수 있습니다.  
 따라서 참고용으로만 사용하시고, 추가적인 자료를 통해 확인하시기를 권장합니다.
 
 ### 🔍 목차
-- [Part 1: LANGUAGE](#part-1-language)
-    - [01. JAVA](#01-java)
-- [Part 2: CS](#part-2-cs)
-    - [01. 네트워크](#01-네트워크)
-    - [02. 운영체제](#02-운영체제)
+- [Part 01: JAVA](#part-01-java)
+- [Part 02: SPRING](#part-02-spring)
+- [Part 03: JPA](#part-03-jpa)
+- [Part 04: DATABASE](#part-04-database)
+- [Part 05: NETWORK](#part-05-network)
+- [Part 06: OS](#part-06-os)
+- [Part 07: INTERVIEW](#part-07-interview)
 
 ---
 
-## Part 1: LANGUAGE
-### 01. JAVA
-- equals() 와 hashCode() 메소드들은 각각 어떤 역할일까요? 이 둘의 차이점은 무엇일까요?
-- StringBuilder와 StringBuffer의 차이는 무엇일까요?
-- System.out.println 메소드는 현업에서 절대 쓰지 말라고하는 메소드인데요. 그 이유가 무엇일까요?
-- ArrayList 는 내부적으로 어떻게 구현되어있을까요?
-- 스레드는 왜 써야하는 것일까요?
-- 0이 들어있는 변수에 10개의 스레드가 동시에 접근해서 ++ 연산을 하면 우리 예상과 다르게 10이 나오지 않습니다. 왜 그럴까요?
-- 자바에서 동시성과 관련된 예약어를 모두 말씀해주세요.
-- Blocking IO와 Non-Blocking IO 의 차이를 말씀해주세요.
-- Serializable 은 무엇일까요?
+## Part 01: JAVA
+- 객체지향의 4가지 특징
+- SOLID 5원칙
+- 객체지향, 절차지향, 함수형 프로그래밍의 차이점
+- Java의 메모리 관리 (Heap, Stack)
+- 예외 처리 (checked vs unchecked)
 
-## Part 2: CS
-### 01. 네트워크
-- **네트워크 기본 개념**: TCP/IP 모델, OSI 모델 등
-- **HTTP와 HTTPS**: 차이점 및 특징
-- **DNS**: 도메인 네임 시스템의 역할과 동작 원리
+## Part 02: SPRING
+- Spring과 Spring Boot의 차이점
+- Spring MVC란?
+- IoC (Inversion of Control)란?
+- DI (Dependency Injection)란?
+- AOP (Aspect-Oriented Programming)의 개념과 활용
 
-### 02. 운영체제
-- **프로세스와 스레드**: 차이점 및 특징
-- **메모리 관리**: 가상 메모리와 페이지 교체 알고리즘
-- **동기화**: 임계 구역과 상호 배제
+## Part 03: JPA
+- JDBC란?
+- ORM(Object-Relational Mapping)이란?
+- JPA의 주요 어노테이션 (예: @Entity, @Table)
+- JPQL (Java Persistence Query Language) 설명
+
+## Part 04: DATABASE
+- SQL과 NoSQL의 차이점
+- INDEX의 개념과 필요성
+- Transaction의 ACID 원칙
+- Normalization과 Denormalization의 개념
+
+## Part 05: NETWORK
+- OSI 7계층이란?
+- TCP/IP 4계층이란?
+- HTTP와 HTTPS의 차이점
+- DNS(도메인 네임 시스템)의 역할
+
+## Part 06: OS
+- 운영체제란?
+- 커널이란?
+- 프로세스와 스레드의 차이
+- 메모리 관리 기법 (페이지, 세그먼트 등)
+
+## Part 07: INTERVIEW
+- [자바 기술 면접 대비하기 - 1편](https://f-lab.kr/blog/java-backend-interview-1)
+- [자바 기술 면접 대비하기 - 2편](https://f-lab.kr/blog/java-backend-interview-2)
+- [자바 개발자 면접 가이드 - 1편](https://careerly.co.kr/comments/100242)
+- [자바 개발자 면접 가이드 - 2편](https://careerly.co.kr/comments/100476)
 
 ---
 
-해당 레포지토리를 통해 면접 준비에 많은 도움이 되길 바랍니다! 😊
+이 저장소가 면접 준비에 많은 도움이 되길 바랍니다! 😊
