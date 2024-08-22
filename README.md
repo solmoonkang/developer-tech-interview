@@ -14,6 +14,7 @@
 - [Part 05: NETWORK](#part-05-network)
 - [Part 06: OS](#part-06-os)
 - [Part 07: INTERVIEW](#part-07-interview)
+- [Part 08: PROJECT QUESTIONS](#part-08-project-question)
 
 ---
 
@@ -60,6 +61,8 @@
 - [자바 기술 면접 대비하기 - 2편](https://f-lab.kr/blog/java-backend-interview-2)
 - [자바 개발자 면접 가이드 - 1편](https://careerly.co.kr/comments/100242)
 - [자바 개발자 면접 가이드 - 2편](https://careerly.co.kr/comments/100476)
+
+## Part 08: PROJECT QUESTION
 
 ---
 
