@@ -6,7 +6,7 @@
 
 - 프록시는 사전적 의미로 ‘대리’ 혹은 ‘대신’이라는 의미를 가지고 있다.
 
-![Proxy Server](/image_files/proxy-server.png)
+![Proxy Server](/image_files/FrontProxy%20&%20ReverseProxy/proxy-server.png)
 
 프록시 서버는 서버가 어디에 위치하느냐에 따라 포워드 프록시와 리버스 프록시로 나뉘게 된다.
 
@@ -27,7 +27,7 @@
 - 사용자 PC가 직접 연결하는 것이 아닌,
 - 포워드 프록시 서버가 요청을 받아서 Google 사이트에 연결해 그 결과를 클라이언트에게 전달한다.
 
-![Forward Proxy](/image_files/forward-proxy.png)
+![Forward Proxy](/image_files/FrontProxy%20&%20ReverseProxy/forward-proxy.png)
 
 포워드 프록시는 캐시 기능을 사용하기 때문에 캐시 서버로 활용하여 성능을 향상할 수 있다.
 
@@ -52,7 +52,7 @@
 - 리버스 프록시는 해당 요청을 받아 내부 서버에서 데이터를 받은 후
 - 해당 데이터를 사용자에게 다시 전달하게 된다.
 
-![Reverse Proxy](/image_files/reverse-proxy.png)
+![Reverse Proxy](/image_files/FrontProxy%20&%20ReverseProxy/reverse-proxy.png)
 
 마찬가지로 클라이언트는 내부 서버를 접근하지 못하기 때문에 보안과 성능을 향상할 수 있다.
 
