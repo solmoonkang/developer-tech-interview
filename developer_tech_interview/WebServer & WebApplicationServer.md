@@ -171,3 +171,7 @@ WS를 WAS 앞에 두어 필요한 WAS들을 WS에 플러그인 형태로 설정�
 6. `doGet( )` 또는 `doPost( )` 메서드는 인자에 맞게 생성된 적절한 동적 페이지를 HttpServletResponse 객체에 담아서 웹 애플리케이션 서버에 전달한다.
 7. 웹 애플리케이션 서버는 HttpServletResponse를 HttpResponse 형태로 바꿔 웹 서버에 전달한다.
 8. 생성된 스레드를 종료하고, HttpServletRqeust와 HttpServletResponse 객체를 제거한다.
+
+### 참고 자료
+[WebServer와 WebApplicationServer의 차이](https://dkswnkk.tistory.com/503)
+[WebServer와 WebApplicationServer란?](https://binux.tistory.com/32)
