@@ -126,4 +126,4 @@ Apache 서버에 비해 Nginx는 동시 커넥션 수가 늘어나도 메모리 
 반면, 동시 커넥션 수가 많아졌을 때 처리하는 요청 수는 Nginx가 Apache 서버에 비해 압도적으로 높다.
 
 ### 참고 자료
-[NGINX란?](https://dkswnkk.tistory.com/513)
+- [NGINX란?](https://dkswnkk.tistory.com/513)

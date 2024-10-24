@@ -173,5 +173,5 @@ WS를 WAS 앞에 두어 필요한 WAS들을 WS에 플러그인 형태로 설정�
 8. 생성된 스레드를 종료하고, HttpServletRqeust와 HttpServletResponse 객체를 제거한다.
 
 ### 참고 자료
-[WebServer와 WebApplicationServer의 차이](https://dkswnkk.tistory.com/503)
-[WebServer와 WebApplicationServer란?](https://binux.tistory.com/32)
+- [WebServer와 WebApplicationServer의 차이](https://dkswnkk.tistory.com/503)
+- [WebServer와 WebApplicationServer란?](https://binux.tistory.com/32)

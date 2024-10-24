@@ -59,4 +59,4 @@
 여러 개의 내부 서버를 둘 수 있기 때문에 로드 밸런싱이나 서버 확장을 통해 트래픽을 분산시킬 수 있다.
 
 ### 참고 자료
-[ForwardProxy와 ReverseProxy란?](https://dkswnkk.tistory.com/506?category=551275)
+- [ForwardProxy와 ReverseProxy란?](https://dkswnkk.tistory.com/506?category=551275)
