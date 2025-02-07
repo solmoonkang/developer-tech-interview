@@ -289,6 +289,45 @@ JVM 실행 엔진은 인터프리터 방식과 JIT 컴파일러 방식으로 나
 <details>
 <summary>JVM의 구조에 대해서 말해주세요.</summary>
 
+- **자바 가상 머신(JVM)의 동작 방식**
+---
+
+1. 자바 프로그램을 실행하면 JVM은 OS로부터 메모리를 할당받는다.
+2. 자바 컴파일러(`javac`)가 자바 소스코드(`.java`)를 자바 바이트 코드(`.class`)로 컴파일한다.
+3. Class Loader는 동적 로딩을 통해 필요한 클래스들을 로딩 및 링크하여 Runtime Data Area(실질적인 메모리를 할당받아 관리하는 영역)에 올린다.
+4. Runtime Data Area에 로딩된 바이트 코드는 Execution Engine을 통해 해석된다.
+5. 이 과정에서 Execution Engine에 의해 Garbage Collector의 작동과 Thread 동기화가 이루어진다.
+> 자바 소스 코드 -> 컴파일러 -> 바이트 코드 -> 클래스 로더 -> 메모리 영역에 로드 -> 실행 엔진 -> 바이트 코드 실행
+
+<br>
+
+- **자바 가상 머신(JVM)의 구조**
+---
+
+JVM은 다음과 같이 구성되어 있다.
+
+- **클래스 로더, Class Loader**: .class 파일을 찾아서 로드하고, 메모리에 적재하는 역할을 한다.
+  - 로딩, Loading: 클래스 파일을 읽어 메모리에 로드한다.
+  - 링크, Linking: 클래스 간의 참조를 확인하고, 필요한 메모리를 할당한다.
+  - 초기화, Initalization: 클래스의 정적 초기화 블록을 실행한다.
+
+
+- **실행 엔진, Execution Engine**: 바이트 코드를 실행하는 역할을 한다.
+  - 인터프리터, Interpreter: 바이트 코드를 한 줄씩 해석하여 실행한다.
+  - JIT 컴파일러, Just-in-Time: 자주 호출되는 바이트 코드를 기계어로 변환하여 성능을 개선한다.
+  - 가비지 콜렉터, Garbage Collector: 더 이상 사용되지 않는 메모리를 자동으로 회수하여 메모리 관리를 수행한다.
+
+
+- **런타임 데이터 영역, Runtime Data Area**
+  - 메서드 영역, Method Area: 클래스 정보, 상수, 정적 변수 등을 저장한다.
+  - 힙 영역, Heap Area: 객체 인스턴스와 배열을 저장하는 공간이다.
+  - PC 레지스터, Program Counter Register: 현재 실행 중인 JVM 명령의 주소를 저장한다.
+  - 네이티브 메서드 스택, Native Method Stack: 네이티브 메서드 호출 시 사용되는 스택이다.
+
+
+- **네이티브 인터페이스, Native Interface**: Java와 네이티브 라이브러리 간의 연결을 제공한다.
+  - JNI(Java Native Interface)를 통해 자바 코드에서 네이티브 메서드를 호출할 수 있다.
+
 </details>
 
 ---
