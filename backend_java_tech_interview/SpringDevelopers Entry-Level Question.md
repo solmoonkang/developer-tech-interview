@@ -120,14 +120,15 @@
 - **스프링 빈 정의: XML 설정 방식**
 
 ```xml
-
+<!-- 예시: 스프링 빈 설정
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
   <bean id="myService" class="com.example.MyService"/>
-</beans>
+</beans> 
+-->
 ```
 
 - **스프링 빈 정의: 자바 기반 설정 방식**
@@ -228,12 +229,31 @@ public class MyBean {
 <details>
 <summary>Spring Boot 프레임워크에 대해 말해주세요.</summary>
 
--
+- 스프링 프레임워크의 기존 개발 방식의 문제와 한계를 극복하기 위해 다양한 기능을 제공한다.
+- 많은 모듈을 추가하면 설정이 복잡해지는데, 이를 해결하기 위해 스프링 부트가 탄생하게 되었다.
+
+<br>
+
+- 스프링 부트는 스프링 프레임워크 위에 구축된 프로젝트로, 제품 단계의 애플리케이션 개발을 간소화한다.
+- 임베디드 서버, 보안, 메트릭스, 외부화된 설정과 같은 다양한 비기능을 제공하여 개발자가 최소한의 설정으로 애플리케이션을 빠르게 구축할 수 있도록 돕는다.
 
 <details>
-<summary>⁉️ </summary>
+<summary>⁉️ 스프링 부트를 사용하는 이유, 주요 특징에 대해서 말해주세요.</summary>
 
+- **자동 구성, AutoConfiguration**
+  - 필요한 라이브러리와 설정을 자동으로 감지하여 복잡한 설정 과정을 최소화한다.
 
+- **스타터 의존성, Starter Dependency**
+  - 다양한 기능을 쉽게 추가할 수 있도록 미리 정의된 스타터 의존성을 제공한다.
+
+- **단독 실행, Standalone**
+  - 내장된 웹 서버 Tomcat, Jetty 등을 포함하여 독립적으로 실행하고, 별도의 서버 설치 없이 JAR 파일로 실행할 수 있다.
+
+- **프로덕션 준비, Production Ready**
+  - 모니터링, 메트릭스, 설정 관리 등 프로덕션 환경에 필요한 기능을 내장해서 운영 환경에 적합한 애플리케이션을 쉽게 만들 수 있다.
+
+- **스프링의 모든 기능 사용**
+  - 스프링 프레임워크의 모든 기능을 사용할 수 있으며, 기존 스프링 생태계를 그대로 활용할 수 있다.
 
 </details>
 
