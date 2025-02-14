@@ -15,7 +15,14 @@
     - [4-3. @Component, @Service, @Repository, @Controller 어노테이션의 차이점에 대해 말해주세요.]()
 - [5. 스프링 MVC에 대해서 말해주세요.](#스프링-mvc)
     - [5-1. DispatcherServlet에 대해 말해주세요.]()
+    - [5-2. 스프링 MVC의 동작 과정에 대해 말해주세요.]()
 - [6. Spring Boot 프레임워크에 대해 말해주세요.](#spring-boot-프레임워크)
+    - [6-1. 스프링 부트를 사용하는 이유, 주요 특징에 대해서 말해주세요.]()
+    - [6-2. 스프링 부트를 사용하는 장점에 대해 말해주세요.]()
+    - [6-3. @SpringBootApplication 어노테이션에 대해 말해주세요.]()
+    - [6-4. ]()
+    - [6-5. ]()
+- [7. 스프링 AOP에 대해 말해주세요.](#스프링-aop)
 
 <br>
 
@@ -271,6 +278,70 @@ public class MyBean {
 
 </details>
 
+<br>
+
+<details>
+<summary>⁉️ @SpringBootApplication 어노테이션에 대해 말해주세요.</summary>
+
+- 스프링 부트 애플리케이션을 설정하기 위한 핵심 어노테이션으로, 세 가지 어노테이션의 조합으로 이루어져 있다.
+
+
+- **@SpringBootConfiguration**: 스프링 부트 애플리케이션의 설정을 정의한다.
+  - @Configuration 어노테이션을 포함하여 스프링의 설정 클래스로 작동한다.
+
+- **@EnableAutoConfiguration**: 스프링 부트의 자동 설정 기능을 활성화한다.
+  - 클래스 경로에 있는 라이브러리와 설정에 따라 스프링 애플리케이션의 구성을 자동으로 설정한다.
+
+- **@ComponetScan**: 현재 패키지와 그 하위 패키지에서 스프링의 컴포넌트를 자동으로 검색한다.
+  - 이는 @Component, @Service, @Repository, @Controller와 같은 어노테이션이 붙은 클래스를 찾아 스프링의 Application Context에 등록한다. 
+
+> 스프링 부트 프레임워크를 사용하면 기본적으로 많이 사용하는 것들을 자동으로 설정하는 어노테이션을 제공한다.
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ </summary>
+
+
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ </summary>
+
+
+
+</details>
+
 </details>
 
 ---
+
+#### 스프링 AOP
+
+<details>
+<summary>스프링 AOP에 대해 말해주세요.</summary>
+
+- 
+
+<details>
+<summary>⁉️ </summary>
+
+- 
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ </summary>
+
+- 
+
+</details>
+
+</details>
