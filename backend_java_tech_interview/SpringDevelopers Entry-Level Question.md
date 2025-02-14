@@ -206,6 +206,19 @@ public class MyBean {
 
 </details>
 
+<details>
+<summary>⁉️ 스프링 MVC의 동작 과정에 대해 말해주세요.</summary>
+
+- 클라이언트 요청을 받고, 요청을 적절한 핸들러(컨트롤러)로 전달한다.
+- 요청 URL에 따라 적절한 컨트롤러를 찾아 호출한다.
+- 컨트롤러는 서비스 레이어를 호출하여 비즈니스 로직을 처리한다.
+- 서비스로부터 받은 데이터를 모델에 담아 뷰로 전달한다.
+- 뷰를 결정하고 렌더링을 지시한다.
+
+> DispatcherServlet -> Handler Mapping -> Bussiness Logic -> Model -> ViewResolver
+
+</details>
+
 </details>
 
 ---
