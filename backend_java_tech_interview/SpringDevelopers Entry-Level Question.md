@@ -293,7 +293,7 @@ public class MyBean {
   - 클래스 경로에 있는 라이브러리와 설정에 따라 스프링 애플리케이션의 구성을 자동으로 설정한다.
 
 - **@ComponetScan**: 현재 패키지와 그 하위 패키지에서 스프링의 컴포넌트를 자동으로 검색한다.
-  - 이는 @Component, @Service, @Repository, @Controller와 같은 어노테이션이 붙은 클래스를 찾아 스프링의 Application Context에 등록한다. 
+  - 이는 @Component, @Service, @Repository, @Controller와 같은 어노테이션이 붙은 클래스를 찾아 스프링의 Application Context에 등록한다.
 
 > 스프링 부트 프레임워크를 사용하면 기본적으로 많이 사용하는 것들을 자동으로 설정하는 어노테이션을 제공한다.
 
@@ -302,9 +302,11 @@ public class MyBean {
 <br>
 
 <details>
-<summary>⁉️ </summary>
+<summary>⁉️ Spring Data JPA에 대해 설명해주세요.</summary>
 
-
+- 스프링 프레임워크, 데이터 액세스 계층 개발을 간소화하는 Spring Data의 한 부분이다.
+- JPA(Java Persistence API)와 함께 사용해 데이터베이스와의 상호작용을 간편하게 처리하도록 도와주는 모듈이다.
+- CRUD(CREATE, READ, UPDATE, DELETE) 작업을 쉽게 수행하며, ORM을 통해 데이터베이스와 자바 객체 간 변환을 자동으로 처리 및 반복 코드를 줄여준다.
 
 </details>
 
