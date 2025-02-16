@@ -355,16 +355,8 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 <details>
 <summary>스프링 AOP에 대해 말해주세요.</summary>
 
-- 
-
-<details>
-<summary>⁉️ </summary>
-
-- 
-
-</details>
-
-<br>
+- 관점 지향 프로그래밍을 지원하여 **공통 관심사를 모듈화하여** 코드의 재사용성과 유지보수성을 향상시킨다.
+- 관점 지향 프로그래밍은 **핵심 관심사와 공통 관심사를 분리**하여 프로그래밍하는 기술이다.
 
 <details>
 <summary>⁉️ </summary>
