@@ -359,6 +359,19 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 - 관점 지향 프로그래밍은 **핵심 관심사와 공통 관심사를 분리**하여 프로그래밍하는 기술이다.
 
 <details>
+<summary>⁉️ 스프링 AOP에서 Advice의 종류에 대해 말해주세요.</summary>
+
+- **@Before**: 비즈니스 로직이 실행되기 전에 실행된다.
+- **@AfterReturning**: 비즈니스 로직이 정상적으로 끝난 후 결과를 받아서 실행된다.
+- **@AfterThrowing**: 비즈니스 로직 실행 중 예외가 발생했을 때 실행된다.
+- **@After**: 비즈니스 로직 실행 후, 성공 여부와 관계없이 항상 실행된다.
+- **@Around**: 비즈니스 로직 실행 전후에 모두 실행된다.
+
+</details>
+
+<br>
+
+<details>
 <summary>⁉️ </summary>
 
 - 
