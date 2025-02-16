@@ -20,8 +20,9 @@
     - [6-1. 스프링 부트를 사용하는 이유, 주요 특징에 대해서 말해주세요.]()
     - [6-2. 스프링 부트를 사용하는 장점에 대해 말해주세요.]()
     - [6-3. @SpringBootApplication 어노테이션에 대해 말해주세요.]()
-    - [6-4. ]()
-    - [6-5. ]()
+    - [6-4. Spring Data JPA에 대해 말해주세요.]()
+    - [6-5. Spring Repository에 대해 설명해주세요.]()
+    - [6-6. CrudRepository와 JpaRepository의 차이에 대해 설명해주세요.]()
 - [7. 스프링 AOP에 대해 말해주세요.](#스프링-aop)
 
 <br>
@@ -313,7 +314,30 @@ public class MyBean {
 <br>
 
 <details>
-<summary>⁉️ </summary>
+<summary>⁉️ Spring Repository에 대해 설명해주세요.</summary>
+
+- **데이터베이스와의 상호작용을 간소화**하고, 코드의 가독성을 높이며, 유지보수를 용이하게 한다.
+- Repository 인터페이스를 정의하면 **스프링이 자동으로 구현체를 생성**하여, 복잡한 DAO 클래스를 작성할 필요가 없다.
+- 메서드 이름 기반 쿼리를 통해 **자동으로 SQL 쿼리를 생성**하여 개발자의 생산성을 높인다.
+- @Transactional 어노테이션을 사용하여 여러 데이터베이스 작업을 원자적으로 처리할 수 있다.
+- JPA 외에도 MongoDB, Redis 등 다양한 데이터베이스와 데이터 소스를 지원하여 유연한 데이터 접근이 가능하다.
+- 데이터베이스 관련 예외를 DataAccessException으로 변환하여 예외 처리를 간소화한다.
+
+```java
+@Repository
+public interface MemberRepository extends JpaRepository<Member, Long> {
+    List<Member> findByLastName(String lastName);
+}
+```
+
+> Spring Repository는 데이터베이스와 상호작용하기 위한 CRUD 작업 및 쿼리 메서드를 제공하며, 데이터 액세스 기술에 대한 추상화이다.
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ CrudRepository와 JpaRepository의 차이에 대해 설명해주세요.</summary>
 
 
 
