@@ -339,7 +339,10 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 <details>
 <summary>⁉️ CrudRepository와 JpaRepository의 차이에 대해 설명해주세요.</summary>
 
+- CrudRepository: 기본적인 CRUD(CREATE, READ, UPDATE, DELETE) 작업을 위한 메서드를 제공하는 인터페이스로 JPA에 의존하지 않는다.
+- JpaRepository: CrudRepository를 상속받아 기본 CRUD 메서드를 포함하며, JPA 기반 애플리케이션에서 데이터베이스와의 상호작용을 효율적으로 처리하기 위한 인터페이스이다.
 
+> 단순 CRUD 작업이 필요할 경우 CrudRepository를 사용하고, JPA 기능을 활용한 복잡한 데이터 처리가 필요할 경우 JpaRepository를 사용하면 좋다.
 
 </details>
 
