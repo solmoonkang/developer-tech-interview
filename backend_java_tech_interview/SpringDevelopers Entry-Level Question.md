@@ -24,6 +24,8 @@
     - [6-5. Spring Repository에 대해 설명해주세요.]()
     - [6-6. CrudRepository와 JpaRepository의 차이에 대해 설명해주세요.]()
 - [7. 스프링 AOP에 대해 말해주세요.](#스프링-aop)
+  - [7-1. 스프링 AOP에서 Advice의 종류에 대해 말해주세요.]()
+  - [7-2. 스프링 AOP의 처리 과정에 대해 말해주세요.]()
 
 <br>
 
@@ -372,9 +374,32 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 <br>
 
 <details>
-<summary>⁉️ </summary>
+<summary>⁉️ 스프링 AOP의 처리 과정에 대해 말해주세요.</summary>
 
-- 
+- **빈 생성**: 스프링 컨테이너에서 빈 객체를 생성한다.
+- **빈 후처리기**: 빈이 저장소에 등록되기 전에 후처리기에 전달되어 AOP 적용 여부를 결정한다.
+- **Advisor 조회**: 모든 Advisor(Advice와 Pointcut을 포함하는 객체)를 조회한다.
+- **프록시 생성**: 포인트컷과 메서드 조건이 매칭되면 프록시 객체를 생성한다.
+- **빈 등록**: 프록시가 생성되지 않으면 원래 객체 그대로 빈 저장소에 등록한다.
+
+```java
+@Aspect
+public class LoggingAspect {
+
+    @Before("execution(* com.example.service.*.*(..))")
+    public void logBefore(JoinPoint joinPoint) {
+        System.out.println("Method called: " + joinPoint.getSignature().getName());
+    }
+
+    @AfterReturning(pointcut = "execution(* com.example.service.*.*(..))", returning = "result")
+    public void logAfterReturning(JoinPoint joinPoint, Object result) {
+        System.out.println("Method returned: " + joinPoint.getSignature().getName());
+        System.out.println("Result: " + result);
+    }
+}
+```
+
+> 프록시 패턴을 사용하여 실제 객체에 대한 접근을 제어하며, 프록시가 실제 객체를 감싸 AOP 기능을 추가해 실제 메서드를 호출하여 성능 저하 없이 AOP를 적용할 수 있다.
 
 </details>
 
