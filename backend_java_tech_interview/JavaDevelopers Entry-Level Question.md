@@ -419,6 +419,54 @@ public void divide(int a, int b) {
 <details>
 <summary>Call By Reference와 Call By Value의 차이에 대해서 말해주세요.</summary>
 
+- Call By Value는 인수를 호출할 때 변수의 실제 값이 복사되어 전달되는 방식이다. 함수 내에서 매개변수의 값을 변경하더라도 원래 변수에는 영향을 미치지 않는다.
+  - 함수에 전달된 인수의 복사본이 생성된다.
+  - 함수 내에서 매개변수를 수정해도 원래 변수는 변경되지 않는다.
+  - 기본 데이터 타입 int, float, double, char 등에서 사용된다.
+
+```java
+public class CallByValueExample {
+    public static void main(String[] args) {
+        int x = 10;
+        increment(x);
+        System.out.println(x); // 출력: 10
+    }
+
+    public static void increment(int number) {
+        number++; // number의 값만 증가
+    }
+}
+```
+
+- Call By Reference는 인수를 호출할 때 변수의 주소(참조)가 전달되는 방식이다. 함수 내에서 매개변수를 수정하면 원래 변수에도 영향을 미친다.
+  - 변수의 메모리 주소가 전달되어, 함수 내에서 참조를 통해 원본 데이터에 접근한다.
+  - 함수 내에서 매개변수를 수정하면 원래 변수도 변경된다.
+  - 객체 참조 타입 클래스, 배열 등에서 사용된다.
+
+```java
+class MyClass {
+    int value;
+
+    MyClass(int value) {
+        this.value = value;
+    }
+}
+
+public class CallByReferenceExample {
+    public static void main(String[] args) {
+        MyClass obj = new MyClass(10);
+        modify(obj);
+        System.out.println(obj.value); // 출력: 20
+    }
+
+    public static void modify(MyClass myObj) {
+        myObj.value = 20; // 원래 객체의 값 변경
+    }
+}
+```
+
+> CallByValue는 값의 복사본을 전달하여 원본 데이터는 변경되지 않고, CallByReference는 변수의 주소를 전달하여 원본 데이터가 변경될 수 있다.
+
 </details>
 
 ---
