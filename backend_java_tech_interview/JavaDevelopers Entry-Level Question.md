@@ -389,6 +389,27 @@ JVM은 다음과 같이 구성되어 있다.
 <details>
 <summary>CheckedException과 UnCheckedException의 차이에 대해서 말해주세요.</summary>
 
+- CheckedException은 컴파일 타임에 체크되는 예외로, 코드에서 발생할 수 있는 예외를 컴파일러가 인식하고 이를 처리할 수 있도록 강제하는 예외이다.
+  - CheckedException은 반드시 처리해야 하므로, try-catch 블록을 사용하거나 throws를 선언하여 호출자에게 예외를 전파해야 한다.
+
+```java
+public void readFile(String fileName) throws IOException {
+    FileReader fileReader = new FileReader(fileName);
+    // 파일 읽기 작업
+}
+```
+
+- UncheckedException은 컴파일 타임에 체크되지 않는 런타임 예외로, 프로그램 실행 중에 발생할 수 있으며 컴파일러가 이를 강제하지 않는다.
+  - UncheckedException은 선택적으로 처리할 수 있으므로, try-catch 블록을 사용하지 않더라도 컴파일 오류가 발생하지 않는다.
+
+```java
+public void divide(int a, int b) {
+    int result = a / b; // b가 0이면 ArithmeticException 발생
+}
+```
+
+> CheckedException은 컴파일 타임에 체크되며 반드시 처리해야 하는 예외이고, UncheckedException은 런타임에 체크되며 선택적으로 처리할 수 있는 예외이다.
+
 </details>
 
 ---
