@@ -226,58 +226,73 @@ JVM 실행 엔진은 인터프리터 방식과 JIT 컴파일러 방식으로 나
 <summary>OOP의 5대 원칙 (SOLID)에 대해 말해주세요.</summary>
 
 - **단일 책임 원칙 - SRP (Single Responsibility Principle)**
+
 ---
 
 클래스 혹은 객체는 단 하나의 책임을 가져야 한다는 원칙이다.
-  - 하나의 클래스는 하나의 기능을 담당하여 하나의 책임을 수행하는 데 집중하도록 클래스를 따로따로 설계하라는 원칙이다.
-  - 단일 책임 원칙의 목적은 책임의 변경으로부터 다른 책임의 변경으로 연쇄작용을 극복하여 프로그램 유지보수성을 높이기 위한 설계이다.
+
+- 하나의 클래스는 하나의 기능을 담당하여 하나의 책임을 수행하는 데 집중하도록 클래스를 따로따로 설계하라는 원칙이다.
+- 단일 책임 원칙의 목적은 책임의 변경으로부터 다른 책임의 변경으로 연쇄작용을 극복하여 프로그램 유지보수성을 높이기 위한 설계이다.
+
 > 책임의 범위는 정해져 있는 것이 아닌 어떤 프로그램을 어떻게 개발하느냐에 따라 생각의 기준이 달라질 수 있다.
 
 <br>
 
 - **개방 폐쇄 원칙 - OCP (Open Closed Principle)**
+
 ---
 
 확장에 열려있어야 하며, 수정에는 닫혀있어야 한다는 원칙이다.
-  - 기능 추가 요청이 오면 확장을 통해 손쉽게 구현하면서, 확장에 따른 클래스 수정은 최소화하도록 설계하라는 원칙이다.
-  
-  
-  - 확장에 열려있다: 새로운 변경사항이 발생했을 때, 유연하게 코드를 추가함으로써 애플리케이션의 기능을 확장할 수 있다.
-  - 변경에 닫혀있다: 새로운 변경사항이 발생했을 때, 객체를 직접적으로 수정하는 것을 제한한다.
+
+- 기능 추가 요청이 오면 확장을 통해 손쉽게 구현하면서, 확장에 따른 클래스 수정은 최소화하도록 설계하라는 원칙이다.
+
+
+- 확장에 열려있다: 새로운 변경사항이 발생했을 때, 유연하게 코드를 추가함으로써 애플리케이션의 기능을 확장할 수 있다.
+- 변경에 닫혀있다: 새로운 변경사항이 발생했을 때, 객체를 직접적으로 수정하는 것을 제한한다.
+
 > OCP는 추상화 사용을 통한 관계 구축을 권장하며, 다형성과 확장을 가능케하는 OOP의 장점을 극대화한 설계 원칙이다.
 
 <br>
 
 - **리스코프 치환 원칙 - LSP (Liskov Substitition Principle)**
+
 ---
 
 하위 클래스 인스턴스는 상위 클래스 인스턴스의 역할을 하는데 문제가 없어야 한다는 원칙이다.
-  - 다형성의 특징을 이용해 업캐스팅된 상태에서 부모의 메서드를 사용해도 동작이 의도대로 흘러가야 한다.
-  - 부모 클래스와 동일한 수준의 선행 조건을 기대하고 사용하는 코드에서는 부모 메서드의 오버라이딩을 조심스럽게 따져가야 한다.
+
+- 다형성의 특징을 이용해 업캐스팅된 상태에서 부모의 메서드를 사용해도 동작이 의도대로 흘러가야 한다.
+- 부모 클래스와 동일한 수준의 선행 조건을 기대하고 사용하는 코드에서는 부모 메서드의 오버라이딩을 조심스럽게 따져가야 한다.
 
 
-  - Collection 타입의 객체에서 자료형을 LinkedList를 사용하다가 HashSet으로 바꿔도 add( ) 메서드를 실행하는 데 있어 문제없이 동작한다.
+- Collection 타입의 객체에서 자료형을 LinkedList를 사용하다가 HashSet으로 바꿔도 add( ) 메서드를 실행하는 데 있어 문제없이 동작한다.
+
 > 다형성을 이용해 부모 타입의 메서드로 실행해도 의도대로 실행되도록 구성을 해줘야 하는 설계 원칙이다.
 
 <br>
 
 - **인터페이스 분리 원칙 - ISP (Interface Segregation Principle)**
+
 ---
 
 인터페이스를 각 사용에 맞도록 잘게 분리해야 한다는 설계 원칙이다.
-  - SRP의 목표는 클래스 분리를 통한 단일 책임을 강조한다면, ISP의 목표는 인터페이스 분리를 통한 단일 책임을 강조한다.
-  - 클라이언트의 목적과 용도에 적합한 인터페이스만을 제공하는 것이 목표이다.
-  - 다만, 인터페이스를 분리하여 구성한 후 수정사항이 생겨 다시 인터페이스를 분리하는 행위는 가하지 않아야 한다.
+
+- SRP의 목표는 클래스 분리를 통한 단일 책임을 강조한다면, ISP의 목표는 인터페이스 분리를 통한 단일 책임을 강조한다.
+- 클라이언트의 목적과 용도에 적합한 인터페이스만을 제공하는 것이 목표이다.
+- 다만, 인터페이스를 분리하여 구성한 후 수정사항이 생겨 다시 인터페이스를 분리하는 행위는 가하지 않아야 한다.
+
 > 자유롭게 다중 상속이 가능한 인터페이스는 분리할 수 있다면 분리해서 각 클래스 용도에 맞게 구현하라는 설계 원칙이다.
 
 <br>
 
 - **의존 역전 원칙 - DIP (Dependency Inversion Principle)**
+
 ---
 
 대상의 상위 요소인 추상 클래스 혹은 인터페이스를 참조해야 한다는 설계 원칙이다.
-  - 구현 클래스에 의존하는 것이 아닌, 인터페이스에 의존해야 한다.
-  - 의존 관계를 맺을 때는 변화하기 쉬운 것이나 자주 변화하는 것보다는 변화하기 어려운 혹은 변화가 없는 것에 의존해야 한다.
+
+- 구현 클래스에 의존하는 것이 아닌, 인터페이스에 의존해야 한다.
+- 의존 관계를 맺을 때는 변화하기 쉬운 것이나 자주 변화하는 것보다는 변화하기 어려운 혹은 변화가 없는 것에 의존해야 한다.
+
 > DIP의 지향점은 각 클래스 간의 결합도를 낮추는 것이 설계 원칙이다.
 
 </details>
@@ -290,6 +305,7 @@ JVM 실행 엔진은 인터프리터 방식과 JIT 컴파일러 방식으로 나
 <summary>JVM의 구조에 대해서 말해주세요.</summary>
 
 - **자바 가상 머신(JVM)의 동작 방식**
+
 ---
 
 1. 자바 프로그램을 실행하면 JVM은 OS로부터 메모리를 할당받는다.
@@ -297,36 +313,38 @@ JVM 실행 엔진은 인터프리터 방식과 JIT 컴파일러 방식으로 나
 3. Class Loader는 동적 로딩을 통해 필요한 클래스들을 로딩 및 링크하여 Runtime Data Area(실질적인 메모리를 할당받아 관리하는 영역)에 올린다.
 4. Runtime Data Area에 로딩된 바이트 코드는 Execution Engine을 통해 해석된다.
 5. 이 과정에서 Execution Engine에 의해 Garbage Collector의 작동과 Thread 동기화가 이루어진다.
+
 > 자바 소스 코드 -> 컴파일러 -> 바이트 코드 -> 클래스 로더 -> 메모리 영역에 로드 -> 실행 엔진 -> 바이트 코드 실행
 
 <br>
 
 - **자바 가상 머신(JVM)의 구조**
+
 ---
 
 JVM은 다음과 같이 구성되어 있다.
 
 - **클래스 로더, Class Loader**: .class 파일을 찾아서 로드하고, 메모리에 적재하는 역할을 한다.
-  - 로딩, Loading: 클래스 파일을 읽어 메모리에 로드한다.
-  - 링크, Linking: 클래스 간의 참조를 확인하고, 필요한 메모리를 할당한다.
-  - 초기화, Initalization: 클래스의 정적 초기화 블록을 실행한다.
+    - 로딩, Loading: 클래스 파일을 읽어 메모리에 로드한다.
+    - 링크, Linking: 클래스 간의 참조를 확인하고, 필요한 메모리를 할당한다.
+    - 초기화, Initalization: 클래스의 정적 초기화 블록을 실행한다.
 
 
 - **실행 엔진, Execution Engine**: 바이트 코드를 실행하는 역할을 한다.
-  - 인터프리터, Interpreter: 바이트 코드를 한 줄씩 해석하여 실행한다.
-  - JIT 컴파일러, Just-in-Time: 자주 호출되는 바이트 코드를 기계어로 변환하여 성능을 개선한다.
-  - 가비지 콜렉터, Garbage Collector: 더 이상 사용되지 않는 메모리를 자동으로 회수하여 메모리 관리를 수행한다.
+    - 인터프리터, Interpreter: 바이트 코드를 한 줄씩 해석하여 실행한다.
+    - JIT 컴파일러, Just-in-Time: 자주 호출되는 바이트 코드를 기계어로 변환하여 성능을 개선한다.
+    - 가비지 콜렉터, Garbage Collector: 더 이상 사용되지 않는 메모리를 자동으로 회수하여 메모리 관리를 수행한다.
 
 
 - **런타임 데이터 영역, Runtime Data Area**
-  - 메서드 영역, Method Area: 클래스 정보, 상수, 정적 변수 등을 저장한다.
-  - 힙 영역, Heap Area: 객체 인스턴스와 배열을 저장하는 공간이다.
-  - PC 레지스터, Program Counter Register: 현재 실행 중인 JVM 명령의 주소를 저장한다.
-  - 네이티브 메서드 스택, Native Method Stack: 네이티브 메서드 호출 시 사용되는 스택이다.
+    - 메서드 영역, Method Area: 클래스 정보, 상수, 정적 변수 등을 저장한다.
+    - 힙 영역, Heap Area: 객체 인스턴스와 배열을 저장하는 공간이다.
+    - PC 레지스터, Program Counter Register: 현재 실행 중인 JVM 명령의 주소를 저장한다.
+    - 네이티브 메서드 스택, Native Method Stack: 네이티브 메서드 호출 시 사용되는 스택이다.
 
 
 - **네이티브 인터페이스, Native Interface**: Java와 네이티브 라이브러리 간의 연결을 제공한다.
-  - JNI(Java Native Interface)를 통해 자바 코드에서 네이티브 메서드를 호출할 수 있다.
+    - JNI(Java Native Interface)를 통해 자바 코드에서 네이티브 메서드를 호출할 수 있다.
 
 </details>
 
@@ -353,26 +371,30 @@ JVM은 다음과 같이 구성되어 있다.
 <summary>Interface와 Abstract Class의 차이에 대해서 말해주세요.</summary>
 
 **추상 클래스, Abstract Class**
-  - 일부 메서드 구현이 가능한 미완성 설계도에 비유할 수 있다.
+
+- 일부 메서드 구현이 가능한 미완성 설계도에 비유할 수 있다.
 
 **추상 클래스 특징**
-  - **추상 메서드와 일반 메서드를 모두 포함**할 수 있다.
-  - **단일 상속**만 가능하다.
-  - new 연산자로 객체를 직접 생성할 수 없다.
-  - **인스턴스 변수**를 가질 수 있어 상태 저장이 가능하다.
-  - 자식 클래스에서 추상 메서드를 **반드시 구현**해야 한다.
+
+- **추상 메서드와 일반 메서드를 모두 포함**할 수 있다.
+- **단일 상속**만 가능하다.
+- new 연산자로 객체를 직접 생성할 수 없다.
+- **인스턴스 변수**를 가질 수 있어 상태 저장이 가능하다.
+- 자식 클래스에서 추상 메서드를 **반드시 구현**해야 한다.
 
 <br>
 
 **인터페이스, Interface**
-  - 메서드 시그니처만 정의하는 기본 설계도에 비유할 수 있다.
+
+- 메서드 시그니처만 정의하는 기본 설계도에 비유할 수 있다.
 
 **인터페이스 특징**
-  - 모든 메서드는 기본적으로 추상 메서드이며, 자바 8 이상부터 기본 메서드도 가능하다.
-  - **다중 상속이 가능**하다.
-  - 인터페이스 자체로는 객체를 생성할 수 없으며, 구현 클래스를 통해 생성할 수 있다.
-  - static final, **상수만 가질 수 있고 인스턴스 변수는 가질 수 없다.**
-  - 구현 클래스에서 메서드를 오버라이딩해야 하지만 강제는 아니다.
+
+- 모든 메서드는 기본적으로 추상 메서드이며, 자바 8 이상부터 기본 메서드도 가능하다.
+- **다중 상속이 가능**하다.
+- 인터페이스 자체로는 객체를 생성할 수 없으며, 구현 클래스를 통해 생성할 수 있다.
+- static final, **상수만 가질 수 있고 인스턴스 변수는 가질 수 없다.**
+- 구현 클래스에서 메서드를 오버라이딩해야 하지만 강제는 아니다.
 
 > 주요 차이점은 메서드 구현 방식으로, 추상 클래스는 구현된 메서드와 추상 메서드를 혼합할 수 있지만, 인터페이스는 메서드 시그니처만 정의하여 구현을 강제하지 않는다.
 
@@ -390,21 +412,21 @@ JVM은 다음과 같이 구성되어 있다.
 <summary>CheckedException과 UnCheckedException의 차이에 대해서 말해주세요.</summary>
 
 - CheckedException은 컴파일 타임에 체크되는 예외로, 코드에서 발생할 수 있는 예외를 컴파일러가 인식하고 이를 처리할 수 있도록 강제하는 예외이다.
-  - CheckedException은 반드시 처리해야 하므로, try-catch 블록을 사용하거나 throws를 선언하여 호출자에게 예외를 전파해야 한다.
+    - CheckedException은 반드시 처리해야 하므로, try-catch 블록을 사용하거나 throws를 선언하여 호출자에게 예외를 전파해야 한다.
 
 ```java
 public void readFile(String fileName) throws IOException {
-    FileReader fileReader = new FileReader(fileName);
-    // 파일 읽기 작업
+	FileReader fileReader = new FileReader(fileName);
+	// 파일 읽기 작업
 }
 ```
 
 - UncheckedException은 컴파일 타임에 체크되지 않는 런타임 예외로, 프로그램 실행 중에 발생할 수 있으며 컴파일러가 이를 강제하지 않는다.
-  - UncheckedException은 선택적으로 처리할 수 있으므로, try-catch 블록을 사용하지 않더라도 컴파일 오류가 발생하지 않는다.
+    - UncheckedException은 선택적으로 처리할 수 있으므로, try-catch 블록을 사용하지 않더라도 컴파일 오류가 발생하지 않는다.
 
 ```java
 public void divide(int a, int b) {
-    int result = a / b; // b가 0이면 ArithmeticException 발생
+	int result = a / b; // b가 0이면 ArithmeticException 발생
 }
 ```
 
@@ -420,48 +442,48 @@ public void divide(int a, int b) {
 <summary>Call By Reference와 Call By Value의 차이에 대해서 말해주세요.</summary>
 
 - Call By Value는 인수를 호출할 때 변수의 실제 값이 복사되어 전달되는 방식이다. 함수 내에서 매개변수의 값을 변경하더라도 원래 변수에는 영향을 미치지 않는다.
-  - 함수에 전달된 인수의 복사본이 생성된다.
-  - 함수 내에서 매개변수를 수정해도 원래 변수는 변경되지 않는다.
-  - 기본 데이터 타입 int, float, double, char 등에서 사용된다.
+    - 함수에 전달된 인수의 복사본이 생성된다.
+    - 함수 내에서 매개변수를 수정해도 원래 변수는 변경되지 않는다.
+    - 기본 데이터 타입 int, float, double, char 등에서 사용된다.
 
 ```java
 public class CallByValueExample {
-    public static void main(String[] args) {
-        int x = 10;
-        increment(x);
-        System.out.println(x); // 출력: 10
-    }
+	public static void main(String[] args) {
+		int x = 10;
+		increment(x);
+		System.out.println(x); // 출력: 10
+	}
 
-    public static void increment(int number) {
-        number++; // number의 값만 증가
-    }
+	public static void increment(int number) {
+		number++; // number의 값만 증가
+	}
 }
 ```
 
 - Call By Reference는 인수를 호출할 때 변수의 주소(참조)가 전달되는 방식이다. 함수 내에서 매개변수를 수정하면 원래 변수에도 영향을 미친다.
-  - 변수의 메모리 주소가 전달되어, 함수 내에서 참조를 통해 원본 데이터에 접근한다.
-  - 함수 내에서 매개변수를 수정하면 원래 변수도 변경된다.
-  - 객체 참조 타입 클래스, 배열 등에서 사용된다.
+    - 변수의 메모리 주소가 전달되어, 함수 내에서 참조를 통해 원본 데이터에 접근한다.
+    - 함수 내에서 매개변수를 수정하면 원래 변수도 변경된다.
+    - 객체 참조 타입 클래스, 배열 등에서 사용된다.
 
 ```java
 class MyClass {
-    int value;
+	int value;
 
-    MyClass(int value) {
-        this.value = value;
-    }
+	MyClass(int value) {
+		this.value = value;
+	}
 }
 
 public class CallByReferenceExample {
-    public static void main(String[] args) {
-        MyClass obj = new MyClass(10);
-        modify(obj);
-        System.out.println(obj.value); // 출력: 20
-    }
+	public static void main(String[] args) {
+		MyClass obj = new MyClass(10);
+		modify(obj);
+		System.out.println(obj.value); // 출력: 20
+	}
 
-    public static void modify(MyClass myObj) {
-        myObj.value = 20; // 원래 객체의 값 변경
-    }
+	public static void modify(MyClass myObj) {
+		myObj.value = 20; // 원래 객체의 값 변경
+	}
 }
 ```
 
@@ -475,5 +497,57 @@ public class CallByReferenceExample {
 
 <details>
 <summary>오버로딩과 오버라이딩의 차이에 대해서 말해주세요.</summary>
+
+- **오버로딩, Overloading**은 같은 이름을 가진 여러 메서드를 정의하는 것을 의미한다.
+- 메서드는 서로 다른 매개변수 목록(파라미터의 타입, 개수, 순서 등)을 가져야 한다.
+
+
+- **메서드 이름이 동일**: 여러 메서드가 동일한 이름을 가진다.
+- **매개변수 목록이 다름**: 매개변수의 타입이나 개수가 달라야 한다.
+- **컴파일 타임에 결정**: 어떤 메서드가 호출될지는 컴파일 타임에 결정된다.
+
+```java
+class MathUtils {
+	// 두 정수의 합
+	public int add(int a, int b) {
+		return a + b;
+	}
+
+	// 세 정수의 합
+	public int add(int a, int b, int c) {
+		return a + b + c;
+	}
+
+	// 두 실수의 합
+	public double add(double a, double b) {
+		return a + b;
+	}
+}
+```
+
+- **오버라이딩, Overriding**은 상속 관계에 있는 클래스에서 부모 클래스의 메서드를 자식 클래스에서 재정의하는 것을 의미한다.
+- 자식 클래스에서 부모 클래스의 메서드와 동일한 이름, 반환 타입, 매개변수 목록을 가져야 한다.
+
+
+- **메서드 이름이 동일**: 부모 클래스의 메서드와 동일한 이름을 가진다.
+- **매개변수 목록이 동일**: 매개변수의 타입과 개수도 동일해야 한다.
+- **런타임에 결정**: 어떤 메서드가 호출될지는 런타임에 결정된다. (동적 바인딩)
+
+```java
+class Animal {
+	void sound() {
+		System.out.println("Animal makes a sound");
+	}
+}
+
+class Dog extends Animal {
+	@Override
+	void sound() { // 부모 클래스의 메서드를 오버라이드
+		System.out.println("Dog barks");
+	}
+}
+```
+
+> 오버로딩은 동일 메서드를 여러 개 정의하고 매개변수 목록이 다르다. 오버라이딩은 부모 클래스의 메서드를 자식 클래스에서 재정의하며 메서드 이름과 매개변수 목록이 동일하다.
 
 </details>
