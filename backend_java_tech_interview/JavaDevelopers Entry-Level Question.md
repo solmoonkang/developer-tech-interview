@@ -16,7 +16,7 @@
 - [8. Interface와 Abstract Class의 차이에 대해서 말해주세요.](#interface와-abstract-class의-차이)
 - [9. CheckedException과 UnCheckedException의 차이에 대해서 말해주세요.](#checkedexception과-uncheckedexception의-차이)
 - [10. Call By Reference와 Call By Value의 차이에 대해서 말해주세요.](#call-by-reference와-call-by-value의-차이)
-    - [10-1. Java는 어디에 해당하는지 알려주세요.]()
+    - [10-1. JAVA의 호출 방식에 대해 말해주세요.]()
 - [11. 오버로딩과 오버라이딩의 차이에 대해서 말해주세요.](#오버로딩과-오버라이딩의-차이)
 
 <br>
@@ -488,6 +488,16 @@ public class CallByReferenceExample {
 ```
 
 > CallByValue는 값의 복사본을 전달하여 원본 데이터는 변경되지 않고, CallByReference는 변수의 주소를 전달하여 원본 데이터가 변경될 수 있다.
+
+<details>
+<summary>⁉️ JAVA의 호출 방식에 대해 말해주세요.</summary>
+
+- 자바는 기본적으로 CallByValue 방식을 사용하여 기본 데이터 타입 int, float, char 등을 전달할 때는 값의 복사본이 전달된다.
+- 객체의 경우에는 객체의 참조(주소)의 복사본을 전달하여 원본 객체의 상태를 변경할 수 있지만, 객체 자체를 다른 객체로 변경하는 것은 불가능하다.
+
+> 자바는 CallByValue 방식을 사용하지만, 객체의 경우, 참조의 복사본을 전달하여 원본 객체의 상태를 변경할 수 있다.
+
+</details>
 
 </details>
 
