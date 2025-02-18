@@ -86,6 +86,15 @@
 <details>
 <summary>⁉️ JPA 엔티티 상태 전이에 대해 말해주세요.</summary>
 
+1. **Transient (비영속 상태) → Managed (영속 상태)**
+   - persist() 메서드를 호출하여 엔티티를 영속성 컨텍스트에 저장한다.
+2. **Managed (영속 상태) → Detached (준영속 상태)**
+   - detach() 메서드를 호출하거나 EntityManager가 닫힐 때 엔티티가 영속성 컨텍스트에서 분리된다.
+3. **Managed (영속 상태) → Removed (삭제 상태)**
+   - remove() 메서드를 호출하여 엔티티를 영속성 컨텍스트에서 제거한다.
+4. **Detached (준영속 상태) → Managed (영속 상태)**
+   - merge() 메서드를 호출하여 준영속 상태의 엔ㅌ니티를 다시 영속성 컨텍스트에 병합한다.
+
 </details>
 
 <br>
