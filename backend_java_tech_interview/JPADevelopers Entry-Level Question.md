@@ -18,7 +18,7 @@
     - [5-1. 일대다 관계를 사용할 때 주의해야 할 점에 대해 말해주세요.](#)
     - [5-2. 다대일 관계에서 중간 매핑 테이블을 사용하는 이유에 대해 말해주세요.]()
     - [5-3. CascadeType 설정은 어떻게 하며, 어떤 상황에서 사용하는지에 대해 말해주세요.]()
-    - [5-4. orphanRemoval 옵션으 무엇이고, 어떤 경우에 사용하는지에 대해 말해주세요.]()
+    - [5-4. orphanRemoval 옵션은 무엇이고, 어떤 경우에 사용하는지에 대해 말해주세요.]()
 - [6. 상속, Inheritance 전략에 대해 말해주세요.]()
 - [7. JPA에서 Query Language에 대해 말해주세요.]()
     - [7-1. Named Query에 대해 말해주세요.]()
@@ -300,12 +300,41 @@ commit();   // 변경된 내용이 데이터베이스에 반영된다.
 <details>
 <summary>⁉️ CascadeType 설정은 어떻게 하며, 어떤 상황에서 사용하는지에 대해 말해주세요.</summary>
 
+- **CASCADE 영속성 전이**는 **부모 엔티티의 상태 변화가 자식 엔티티에 전파**되는 기능이다.
+
+```java
+@Entity
+public class Child {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "parent_id") // 외래 키 설정
+    private Parent parent;
+
+    // 기타 필드, 생성자, getter/setter 등
+}
+
+@Entity
+public class Parent {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
+    private List<Child> children = new ArrayList<>();
+
+    // 기타 필드, 생성자, getter/setter 등
+}
+```
+
+- CascadeType의 종류로는 **PERSIST**, **MERGE**, **REMOVE**, **REFRESH**, **DETACH**, **ALL**이 있다.
+
 </details>
 
 <br>
 
 <details>
-<summary>⁉️ orphanRemoval 옵션으 무엇이고, 어떤 경우에 사용하는지에 대해 말해주세요.</summary>
+<summary>⁉️ orphanRemoval 옵션은 무엇이고, 어떤 경우에 사용하는지에 대해 말해주세요.</summary>
 
 </details>
 
