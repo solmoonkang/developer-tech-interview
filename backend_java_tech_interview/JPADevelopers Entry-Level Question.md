@@ -10,11 +10,10 @@
     - [2-3. EntityManager에 대해 말해주세요.]()
 - [3. 영속성 컨텍스트에 대해 말해주세요.](#영속성-컨텍스트-persistence-context)
 - [4. 1차 캐시와 2차 캐시의 차이에 대해 말해주세요.](#1차-캐시-first-level-cachel1-cache와-2차-캐시-second-level-cachel2-cache)
-    - [4-1. 쿼리 캐시를 사용하는 방법에 대해 말해주세요.]()
-    - [4-2. Hibernate에서 1차 캐시와 2차 캐시의 차이점에 대해 말해주세요.]()
-    - [4-3. Dirty Checking에 대해 말해주세요.]()
-    - [4-4. FetchType.LAZY로 설정했을 때 N+1 문제가 발생하는 이유에 대해 말해주세요.]()
-    - [4-5. Lazy Loading과 Eager Loading의 차이에 대해 말해주세요.]()
+    - [4-1. Hibernate 쿼리 캐시에 대해 말해주세요.]()
+    - [4-2. Dirty Checking에 대해 말해주세요.]()
+    - [4-3. FetchType.LAZY로 설정했을 때 N+1 문제가 발생하는 이유에 대해 말해주세요.]()
+    - [4-4. Lazy Loading과 Eager Loading의 차이에 대해 말해주세요.]()
 - [5. 연관 관계를 설정하는 방법에 대해 말해주세요.]()
     - [5-1. OneToOne, OneToMany, ManyToMany 연관 관계에 대해 말해주세요.]()
     - [5-2. 테이블 간 연관 관계를 매핑하는 방법에 대해 말해주세요.]()
@@ -143,6 +142,66 @@
 - **2차 캐시**: 애플리케이션 전체에서 공유되는 캐시로, 여러 EntityManager 인스턴스에서 사용 가능하다.
   - EntityManager가 종료되어도 캐시는 유지되며, 설정에 따라 지속적으로 존재할 수 있다.
   - 동시성 극대화를 위해 데이터의 복사본을 반환하며, 데이터 일관성 관리를 위해 캐시 무효화 정책이나 TTL을 설정할 수 있다.
+
+<details>
+<summary>⁉️ Hibernate 쿼리 캐시에 대해 말해주세요.</summary>
+
+- **엔티티 캐시, Entity Cache**: 자주 조회되는 엔티티의 상태를 메모리에 저장해 데이터베이스 접근을 줄인다.
+- **컬렉션 캐시, Collection Cache**: 특정 엔티티와 관련된 컬렉션의 데이터를 캐시하여, 해당 엔티티를 조회할 때 관련된 컬렉션을 신속히 가져올 수 있도록 한다.
+- **쿼리 캐시, Query Cache**: 동일한 쿼리를 반복적으로 실행할 때, 데이터베이스에 접근하지 않고 캐시된 결과를 반환하여 성능을 향상시킨다.
+
+<br>
+
+**쿼리 캐시 사용 방법**
+
+1. Hibernate 설정: application.properties에서 쿼리 캐시를 활성화한다.
+```properties
+spring.jpa.properties.hibernate.cache.use_second_level_cache=true
+spring.jpa.properties.hibernate.cache.region.factory_class=org.hibernate.cache.ehcache.EhCacheRegionFactory
+spring.jpa.properties.hibernate.cache.use_query_cache=true
+```
+
+2. 쿼리 캐시 사용: 쿼리를 실행할 때 setHint를 사용하여 쿼리 캐시를 사용하도록 설정한다.
+```java
+entityManager.createQuery("SELECT M FROM Member M")
+  .setHint("org.hibernate.cacheable", true) // 쿼리 캐시 사용
+  .getResultList();
+```
+
+<br>
+
+**Spring Data JPA에서 쿼리 캐시 사용 방법**
+
+1. Spring Data JPA 설정: application.properties에서 쿼리 캐시를 활성화한다.
+```properties
+spring.jpa.properties.hibernate.cache.use_second_level_cache=true
+spring.jpa.properties.hibernate.cache.region.factory_class=org.hibernate.cache.ehcache.EhCacheRegionFactory
+spring.jpa.properties.hibernate.cache.use_query_cache=true
+```
+
+2. 쿼리 캐시 사용: Spring Data JPA의 @Query 어노테이션을 사용하여 쿼리 캐시를 설정한다.
+
+- Hibernate의 쿼리 캐시를 활용한다면 @QueryHints를 사용하여 활성화한다.
+```java
+public interface MemberRepository extends Repository<Member, Long> {
+
+  @QueryHints(value = {
+          @QueryHint(name = "org.hibernate.cacheable", value = "true"),
+          @QueryHint(name = "org.hibernate.cacheRegion", value = "member-by-lastname") // cache-region 값 설정
+  })
+  Page<Member> findByLastname(String lastname, Pageable pageable);
+}
+```
+
+- Spring의 캐시 기능을 통해 메서드 결과를 캐시하고 싶다면 @Cacheable을 사용하여 활성화한다.
+```java
+@Query(value = "SELECT M FROM Member M", nativeQuery = false)
+@org.springframework.cache.annotation.Cacheable // 캐시 사용 설정
+List<Member> findAllMembers();
+```
+
+</details>
+
 
 </details>
 
