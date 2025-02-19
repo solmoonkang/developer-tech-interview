@@ -336,6 +336,9 @@ public class Parent {
 <details>
 <summary>⁉️ orphanRemoval 옵션은 무엇이고, 어떤 경우에 사용하는지에 대해 말해주세요.</summary>
 
+- **부모 엔티티와의 관계가 끊어진 자식 엔티티를 자동으로 삭제**하는 JPA 기능이다.
+- 관계를 정의할 때 `orphanRemoval = true`로 설정하여 사용하며, 주로 자식 엔티티가 더 이상 필요하지 않을 때 데이터 무결성 유지를 위해 사용한다.
+
 </details>
 
 </details>
