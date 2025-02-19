@@ -12,8 +12,8 @@
 - [4. 1차 캐시와 2차 캐시의 차이에 대해 말해주세요.](#1차-캐시-first-level-cachel1-cache와-2차-캐시-second-level-cachel2-cache)
     - [4-1. Hibernate 쿼리 캐시에 대해 말해주세요.]()
     - [4-2. 더티 체킹, Dirty Checking에 대해 말해주세요.]()
-    - [4-3. FetchType.LAZY로 설정했을 때 N+1 문제가 발생하는 이유에 대해 말해주세요.]()
-    - [4-4. Lazy Loading과 Eager Loading의 차이에 대해 말해주세요.]()
+    - [4-3. 지연 로딩, Lazy Loading과 즉시 로딩, Eager Loading의 차이에 대해 말해주세요.]()
+    - [4-4. FetchType.LAZY로 설정했을 때 N+1 문제가 발생하는 이유에 대해 말해주세요.]()
 - [5. 연관 관계를 설정하는 방법에 대해 말해주세요.]()
     - [5-1. OneToOne, OneToMany, ManyToMany 연관 관계에 대해 말해주세요.]()
     - [5-2. 테이블 간 연관 관계를 매핑하는 방법에 대해 말해주세요.]()
@@ -225,12 +225,21 @@ entityManager.getTransaction().commit();   // 변경된 내용이 데이터베�
 <br>
 
 <details>
+<summary>⁉️ 지연 로딩, Lazy Loading과 즉시 로딩, Eager Loading의 차이에 대해 말해주세요.</summary>
+
+- **지연 로딩, Lazy Loading**: 필요할 때만 데이터를 로드하여 성능과 메모리를 최적화하지만, N+1 문제와 같은 단점이 있을 수 있다.
+- **즉시 로딩, Eager Loading**: 모든 연관 데이터를 즉시 로드하여 데이터 접근이 용이하지만, 초기 로딩 시간과 메모리 사용량이 증가할 수 있다.
+
+</details>
+
+<br>
+
+<details>
 <summary>⁉️ </summary>
 
 
 
 </details>
-
 
 </details>
 
