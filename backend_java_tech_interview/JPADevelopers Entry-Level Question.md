@@ -14,12 +14,12 @@
     - [4-2. 더티 체킹, Dirty Checking에 대해 말해주세요.]()
     - [4-3. 지연 로딩, Lazy Loading과 즉시 로딩, Eager Loading의 차이에 대해 말해주세요.]()
     - [4-4. 지연 로딩 시 N+1 문제가 발생하는 이유에 대해 말해주세요.]()
-- [5. 연관 관계를 설정하는 방법에 대해 말해주세요.]()
-    - [5-1. OneToOne, OneToMany, ManyToMany 연관 관계에 대해 말해주세요.]()
-    - [5-2. 테이블 간 연관 관계를 매핑하는 방법에 대해 말해주세요.]()
-    - [5-3. CascadeType에 대해 말해주세요.]()
-    - [5-4. orphanRemoval 옵션에 대해 말해주세요.]()
-- [6. 상속, Inheritance 전략에 대해 설명해주세요.]()
+- [5. JPA에서 연관관계 설정 시 일대일, 일대다, 다대일, 다대다의 차이에 대해 말해주세요.](#jpa-연관관계-종류)
+    - [5-1. 일대다 관계를 사용할 때 주의해야 할 점에 대해 말해주세요.](#)
+    - [5-2. 다대일 관계에서 중간 매핑 테이블을 사용하는 이유에 대해 말해주세요.]()
+    - [5-3. CascadeType 설정은 어떻게 하며, 어떤 상황에서 사용하는지에 대해 말해주세요.]()
+    - [5-4. orphanRemoval 옵션으 무엇이고, 어떤 경우에 사용하는지에 대해 말해주세요.]()
+- [6. 상속, Inheritance 전략에 대해 말해주세요.]()
 - [7. JPA에서 Query Language에 대해 말해주세요.]()
     - [7-1. Named Query에 대해 말해주세요.]()
     - [7-2. Criteria API에 대해 말해주세요.]()
@@ -136,12 +136,12 @@
 <summary>1차 캐시와 2차 캐시의 차이에 대해 말해주세요.</summary>
 
 - **1차 캐시**: 각 EntityManager에 의해 관리되는 캐시로, 영속성 컨텍스트 내에서 엔티티의 상태를 저장한다.
-  - EntityManager 인스턴스에 국한되어 있으며, 해당 인스턴스가 열려 있는 동안만 유효하다.
-  - 변경을 자동으로 감지하는 Dirty Checking으로 데이터베이스에 반영하며, 메모리에 저장되어 데이터베이스 접근을 줄여 성능 향상과 빠른 속도를 제공한다.
+    - EntityManager 인스턴스에 국한되어 있으며, 해당 인스턴스가 열려 있는 동안만 유효하다.
+    - 변경을 자동으로 감지하는 Dirty Checking으로 데이터베이스에 반영하며, 메모리에 저장되어 데이터베이스 접근을 줄여 성능 향상과 빠른 속도를 제공한다.
 
 - **2차 캐시**: 애플리케이션 전체에서 공유되는 캐시로, 여러 EntityManager 인스턴스에서 사용 가능하다.
-  - EntityManager가 종료되어도 캐시는 유지되며, 설정에 따라 지속적으로 존재할 수 있다.
-  - 동시성 극대화를 위해 데이터의 복사본을 반환하며, 데이터 일관성 관리를 위해 캐시 무효화 정책이나 TTL을 설정할 수 있다.
+    - EntityManager가 종료되어도 캐시는 유지되며, 설정에 따라 지속적으로 존재할 수 있다.
+    - 동시성 극대화를 위해 데이터의 복사본을 반환하며, 데이터 일관성 관리를 위해 캐시 무효화 정책이나 TTL을 설정할 수 있다.
 
 <details>
 <summary>⁉️ Hibernate 쿼리 캐시에 대해 말해주세요.</summary>
@@ -155,6 +155,7 @@
 **쿼리 캐시 사용 방법**
 
 1. Hibernate 설정: application.properties에서 쿼리 캐시를 활성화한다.
+
 ```properties
 spring.jpa.properties.hibernate.cache.use_second_level_cache=true
 spring.jpa.properties.hibernate.cache.region.factory_class=org.hibernate.cache.ehcache.EhCacheRegionFactory
@@ -162,10 +163,15 @@ spring.jpa.properties.hibernate.cache.use_query_cache=true
 ```
 
 2. 쿼리 캐시 사용: 쿼리를 실행할 때 setHint를 사용하여 쿼리 캐시를 사용하도록 설정한다.
+
 ```java
 entityManager.createQuery("SELECT M FROM Member M")
-  .setHint("org.hibernate.cacheable", true) // 쿼리 캐시 사용
-  .getResultList();
+  .
+
+setHint("org.hibernate.cacheable",true) // 쿼리 캐시 사용
+  .
+
+getResultList();
 ```
 
 <br>
@@ -173,6 +179,7 @@ entityManager.createQuery("SELECT M FROM Member M")
 **Spring Data JPA에서 쿼리 캐시 사용 방법**
 
 1. Spring Data JPA 설정: application.properties에서 쿼리 캐시를 활성화한다.
+
 ```properties
 spring.jpa.properties.hibernate.cache.use_second_level_cache=true
 spring.jpa.properties.hibernate.cache.region.factory_class=org.hibernate.cache.ehcache.EhCacheRegionFactory
@@ -182,21 +189,25 @@ spring.jpa.properties.hibernate.cache.use_query_cache=true
 2. 쿼리 캐시 사용: Spring Data JPA의 @Query 어노테이션을 사용하여 쿼리 캐시를 설정한다.
 
 - Hibernate의 쿼리 캐시를 활용한다면 @QueryHints를 사용하여 활성화한다.
+
 ```java
 public interface MemberRepository extends Repository<Member, Long> {
 
-  @QueryHints(value = {
-          @QueryHint(name = "org.hibernate.cacheable", value = "true"),
-          @QueryHint(name = "org.hibernate.cacheRegion", value = "member-by-lastname") // cache-region 값 설정
-  })
-  Page<Member> findByLastname(String lastname, Pageable pageable);
+	@QueryHints(value = {
+		@QueryHint(name = "org.hibernate.cacheable", value = "true"),
+		@QueryHint(name = "org.hibernate.cacheRegion", value = "member-by-lastname") // cache-region 값 설정
+	})
+	Page<Member> findByLastname(String lastname, Pageable pageable);
 }
 ```
 
 - Spring의 캐시 기능을 통해 메서드 결과를 캐시하고 싶다면 @Cacheable을 사용하여 활성화한다.
+
 ```java
+
 @Query(value = "SELECT M FROM Member M", nativeQuery = false)
-@org.springframework.cache.annotation.Cacheable // 캐시 사용 설정
+@org.springframework.cache.annotation.Cacheable
+	// 캐시 사용 설정
 List<Member> findAllMembers();
 ```
 
@@ -213,9 +224,15 @@ List<Member> findAllMembers();
 
 ```java
 Member member = entityManager.find(Member.class, 1);
-member.setName("NewName");   // 필드 값 변경
+member.
 
-entityManager.getTransaction().commit();   // 변경된 내용이 데이터베이스에 반영된다.
+setName("NewName");   // 필드 값 변경
+
+entityManager.
+
+getTransaction().
+
+commit();   // 변경된 내용이 데이터베이스에 반영된다.
 ```
 
 > JPA가 변경을 감지하기 위해서는 필드 값을 직접 수정하거나 setter 메서드를 사용해야 한다. 그렇지 않을 경우 JPA는 변경 사항을 인식하지 못한다.
@@ -239,6 +256,48 @@ entityManager.getTransaction().commit();   // 변경된 내용이 데이터베�
 
 - 연관된 엔티티를 실제 필요 시까지 로드하지 않는 방식으로 부모 엔티티 조회 후, 자식 엔티티에 접근할 때마다 추가적인 쿼리가 실행된다.
 - 이를 해결하기 위해 _JOIN FETCH_, _Batch Fetching_, *FetchType.EAGER*를 사용하는 방법이 있다.
+
+</details>
+
+</details>
+
+---
+
+#### JPA 연관관계 종류
+
+<details>
+<summary>JPA에서 연관관계 설정 시 일대일, 일대다, 다대일, 다대다의 차이에 대해 말해주세요.</summary>
+
+- **일대일(1:1)**: 하나의 엔티티가 다른 엔티티와 일대일 관계를 가지는 경우이다.
+- **일대다(1:N)**: 하나의 엔티티가 여러 엔티티와 관계를 가지는 경우이다.
+- **다대일(N:1)**: 여러 엔티티가 하나의 엔티티와 관계를 가지는 경우이다.
+- **다대다(N:M)**: 여러 엔티티가 서로 관계를 가지는 경우이다.
+
+> 데이터베이스를 기준으로 다중성을 결정하며, 다(N) 쪽이 외래키를 가지고 있다.
+
+<details>
+<summary>⁉️ 일대다 관계를 사용할 때 주의해야 할 점에 대해 말해주세요.</summary>
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ 다대일 관계에서 중간 매핑 테이블을 사용하는 이유에 대해 말해주세요.</summary>
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ CascadeType 설정은 어떻게 하며, 어떤 상황에서 사용하는지에 대해 말해주세요.</summary>
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ orphanRemoval 옵션으 무엇이고, 어떤 경우에 사용하는지에 대해 말해주세요.</summary>
 
 </details>
 
