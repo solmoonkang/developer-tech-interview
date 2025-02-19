@@ -11,7 +11,7 @@
 - [3. 영속성 컨텍스트에 대해 말해주세요.](#영속성-컨텍스트-persistence-context)
 - [4. 1차 캐시와 2차 캐시의 차이에 대해 말해주세요.](#1차-캐시-first-level-cachel1-cache와-2차-캐시-second-level-cachel2-cache)
     - [4-1. Hibernate 쿼리 캐시에 대해 말해주세요.]()
-    - [4-2. Dirty Checking에 대해 말해주세요.]()
+    - [4-2. 더티 체킹, Dirty Checking에 대해 말해주세요.]()
     - [4-3. FetchType.LAZY로 설정했을 때 N+1 문제가 발생하는 이유에 대해 말해주세요.]()
     - [4-4. Lazy Loading과 Eager Loading의 차이에 대해 말해주세요.]()
 - [5. 연관 관계를 설정하는 방법에 대해 말해주세요.]()
@@ -199,6 +199,35 @@ public interface MemberRepository extends Repository<Member, Long> {
 @org.springframework.cache.annotation.Cacheable // 캐시 사용 설정
 List<Member> findAllMembers();
 ```
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ 더티 체킹, Dirty Checking에 대해 말해주세요.</summary>
+
+- JPA는 엔티티의 상태를 영속성 컨텍스트 내에서 관리한다. 엔티티가 영속 상태에 있을 때, JPA는 해당 엔티티의 필드 값을 감시한다.
+- 엔티티의 필드 값이 변경되면, JPA는 이를 감지하여 해당 엔티티가 **더티, Dirty** 상태임을 인식한다.
+- 더티 체킹은 주로 트랜잭션이 커밋될 때 이루어지며, 변경된 내용을 데이터베이스에 자동으로 반영한다.
+
+```java
+Member member = entityManager.find(Member.class, 1);
+member.setName("NewName");   // 필드 값 변경
+
+entityManager.getTransaction().commit();   // 변경된 내용이 데이터베이스에 반영된다.
+```
+
+> JPA가 변경을 감지하기 위해서는 필드 값을 직접 수정하거나 setter 메서드를 사용해야 한다. 그렇지 않을 경우 JPA는 변경 사항을 인식하지 못한다.
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ </summary>
+
+
 
 </details>
 
