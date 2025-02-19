@@ -13,7 +13,7 @@
     - [4-1. Hibernate 쿼리 캐시에 대해 말해주세요.]()
     - [4-2. 더티 체킹, Dirty Checking에 대해 말해주세요.]()
     - [4-3. 지연 로딩, Lazy Loading과 즉시 로딩, Eager Loading의 차이에 대해 말해주세요.]()
-    - [4-4. FetchType.LAZY로 설정했을 때 N+1 문제가 발생하는 이유에 대해 말해주세요.]()
+    - [4-4. 지연 로딩 시 N+1 문제가 발생하는 이유에 대해 말해주세요.]()
 - [5. 연관 관계를 설정하는 방법에 대해 말해주세요.]()
     - [5-1. OneToOne, OneToMany, ManyToMany 연관 관계에 대해 말해주세요.]()
     - [5-2. 테이블 간 연관 관계를 매핑하는 방법에 대해 말해주세요.]()
@@ -235,9 +235,10 @@ entityManager.getTransaction().commit();   // 변경된 내용이 데이터베�
 <br>
 
 <details>
-<summary>⁉️ </summary>
+<summary>⁉️ 지연 로딩 시 N+1 문제가 발생하는 이유에 대해 말해주세요.</summary>
 
-
+- 연관된 엔티티를 실제 필요 시까지 로드하지 않는 방식으로 부모 엔티티 조회 후, 자식 엔티티에 접근할 때마다 추가적인 쿼리가 실행된다.
+- 이를 해결하기 위해 _JOIN FETCH_, _Batch Fetching_, *FetchType.EAGER*를 사용하는 방법이 있다.
 
 </details>
 
