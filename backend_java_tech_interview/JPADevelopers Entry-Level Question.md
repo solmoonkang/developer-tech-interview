@@ -19,7 +19,8 @@
     - [5-2. 다대일 관계에서 중간 매핑 테이블을 사용하는 이유에 대해 말해주세요.]()
     - [5-3. CascadeType 설정은 어떻게 하며, 어떤 상황에서 사용하는지에 대해 말해주세요.]()
     - [5-4. orphanRemoval 옵션은 무엇이고, 어떤 경우에 사용하는지에 대해 말해주세요.]()
-- [6. 상속, Inheritance 전략에 대해 말해주세요.]()
+- [6. JPA 상속 관계 매핑 전략에 대해 말해주세요.](#jpa-상속-관계-매핑)
+    - [6-1. @MappedSuperclass이 무엇이고, 사용하는 이유에 대해 말해주세요.]()
 - [7. JPA에서 Query Language에 대해 말해주세요.]()
     - [7-1. Named Query에 대해 말해주세요.]()
     - [7-2. Criteria API에 대해 말해주세요.]()
@@ -279,7 +280,7 @@ commit();   // 변경된 내용이 데이터베이스에 반영된다.
 <summary>⁉️ 일대다 관계를 사용할 때 주의해야 할 점에 대해 말해주세요.</summary>
 
 - 일대다(1:N) 관계에서 일(1) 쪽의 수정만 했지만, 다(N) 쪽의 수정이 생겨 쿼리가 발생하게 된다.
-- 일대다(1:N) 단방향 연관관계 매핑이 필요한 경우, **다대일(N:1) 양방향 연관관계 매핑**이 추후 유지보수가 더 수월하다. 
+- 일대다(1:N) 단방향 연관관계 매핑이 필요한 경우, **다대일(N:1) 양방향 연관관계 매핑**이 추후 유지보수가 더 수월하다.
 
 </details>
 
@@ -303,27 +304,30 @@ commit();   // 변경된 내용이 데이터베이스에 반영된다.
 - **CASCADE 영속성 전이**는 **부모 엔티티의 상태 변화가 자식 엔티티에 전파**되는 기능이다.
 
 ```java
+
 @Entity
 public class Child {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "parent_id") // 외래 키 설정
-    private Parent parent;
+	@ManyToOne
+	@JoinColumn(name = "parent_id") // 외래 키 설정
+	private Parent parent;
 
-    // 기타 필드, 생성자, getter/setter 등
+	// 기타 필드, 생성자, getter/setter 등
 }
 
 @Entity
 public class Parent {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
-    private List<Child> children = new ArrayList<>();
+	@OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
+	private List<Child> children = new ArrayList<>();
 
-    // 기타 필드, 생성자, getter/setter 등
+	// 기타 필드, 생성자, getter/setter 등
 }
 ```
 
@@ -338,6 +342,34 @@ public class Parent {
 
 - **부모 엔티티와의 관계가 끊어진 자식 엔티티를 자동으로 삭제**하는 JPA 기능이다.
 - 관계를 정의할 때 `orphanRemoval = true`로 설정하여 사용하며, 주로 자식 엔티티가 더 이상 필요하지 않을 때 데이터 무결성 유지를 위해 사용한다.
+
+</details>
+
+</details>
+
+---
+
+#### JPA 상속 관계 매핑
+
+<details>
+<summary>JPA 상속 관계 매핑 전략에 대해 말해주세요.</summary>
+
+- **조인 전략**: 부모 클래스와 자식 클래스 각각에 테이블을 생성한다.
+  - 부모 클래스의 테이블과 자식 클래스의 테이블을 조인하여 데이터를 조회한다.
+  - @Inheritance(strategy = InheritanceType.JOINED)를 부모 클래스에 사용한다.
+
+- **단일 테이블 전략**: 모든 클래스의 데이터를 하나의 테이블에 저장한다.
+  - @Inheritance(strategy = InheritanceType.SINGLE_TABLE)를 부모 클래스에 사용한다.
+  - @DiscriminatorColumn과 @DiscriminatorValue를 사용하여 각 서브타입을 구별한다.
+
+- **구현 클래스별 테이블 전략**: 각 서브타입마다 별도의 테이블을 생성한다.
+  - @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)를 부모 클래스에 사용한다.
+
+<details>
+<summary>⁉️ @MappedSuperclass이 무엇이고, 사용하는 이유에 대해 말해주세요.</summary>
+
+- JPA에서 부모 클래스가 테이블로 매핑되지 않도록 하면서, 자식 클래스가 부모 클래스의 필드를 상속받을 수 있게 한다.
+- 공통 속성을 여러 엔티티에 적용하고 싶을 때 유용하다.
 
 </details>
 
