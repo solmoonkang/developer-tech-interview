@@ -21,7 +21,7 @@
     - [5-4. orphanRemoval 옵션은 무엇이고, 어떤 경우에 사용하는지에 대해 말해주세요.]()
 - [6. JPA 상속 관계 매핑 전략에 대해 말해주세요.](#jpa-상속-관계-매핑)
     - [6-1. @MappedSuperclass이 무엇이고, 사용하는 이유에 대해 말해주세요.]()
-- [7. JPA에서 Query Language에 대해 말해주세요.]()
+- [7. JPQL(Java Persistence Query Language)에 대해 말해주세요.](#객체-지향-쿼리-언어)
     - [7-1. Named Query에 대해 말해주세요.]()
     - [7-2. Criteria API에 대해 말해주세요.]()
     - [7-3. Criteria Query를 사용하는 이유에 대해 말해주세요.]()
@@ -355,21 +355,102 @@ public class Parent {
 <summary>JPA 상속 관계 매핑 전략에 대해 말해주세요.</summary>
 
 - **조인 전략**: 부모 클래스와 자식 클래스 각각에 테이블을 생성한다.
-  - 부모 클래스의 테이블과 자식 클래스의 테이블을 조인하여 데이터를 조회한다.
-  - @Inheritance(strategy = InheritanceType.JOINED)를 부모 클래스에 사용한다.
+    - 부모 클래스의 테이블과 자식 클래스의 테이블을 조인하여 데이터를 조회한다.
+    - @Inheritance(strategy = InheritanceType.JOINED)를 부모 클래스에 사용한다.
 
 - **단일 테이블 전략**: 모든 클래스의 데이터를 하나의 테이블에 저장한다.
-  - @Inheritance(strategy = InheritanceType.SINGLE_TABLE)를 부모 클래스에 사용한다.
-  - @DiscriminatorColumn과 @DiscriminatorValue를 사용하여 각 서브타입을 구별한다.
+    - @Inheritance(strategy = InheritanceType.SINGLE_TABLE)를 부모 클래스에 사용한다.
+    - @DiscriminatorColumn과 @DiscriminatorValue를 사용하여 각 서브타입을 구별한다.
 
 - **구현 클래스별 테이블 전략**: 각 서브타입마다 별도의 테이블을 생성한다.
-  - @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)를 부모 클래스에 사용한다.
+    - @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)를 부모 클래스에 사용한다.
 
 <details>
 <summary>⁉️ @MappedSuperclass이 무엇이고, 사용하는 이유에 대해 말해주세요.</summary>
 
 - JPA에서 부모 클래스가 테이블로 매핑되지 않도록 하면서, 자식 클래스가 부모 클래스의 필드를 상속받을 수 있게 한다.
 - 공통 속성을 여러 엔티티에 적용하고 싶을 때 유용하다.
+
+</details>
+
+</details>
+
+---
+
+#### 객체 지향 쿼리 언어
+
+<details>
+<summary>JPQL(Java Persistence Query Language)에 대해 말해주세요.</summary>
+
+- JPA에서 제공하는 객체 지향 쿼리 언어로, SQL과 유사하지만 데이터베이스 테이블이 아닌 엔티티 객체를 기반으로 쿼리를 작성한다.
+
+**JPQL 특징**
+
+- **객체 지향적**: 엔티티와 그 속성을 사용하여 쿼리를 구성한다.
+- **데이터베이스 독립성**: JPA 구현체에 따라 다르게 해석될 수 있어, 특정 데이터베이스에 종속되지 않아 이식성이 높다.
+- **동적 쿼리**: 동적 쿼리를 작성할 수 있는 기능을 제공하며, 조건에 따라 쿼리를 변경할 수 있다.
+
+```java
+public class AlbumRepository {
+
+	@PersistenceContext
+	private EntityManager entityManager;
+
+	public List<Album> findAlbumsByArtist(String artist) {
+		String jpql = "SELECT a FROM Album a WHERE a.artist = :artist";
+		TypedQuery<Album> query = entityManager.createQuery(jpql, Album.class);
+		query.setParameter("artist", artist);
+		return query.getResultList();
+	}
+}
+```
+
+> JPQL은 객체 지향적인 데이터 접근을 가능하게 하며, 데이터베이스 구조에 의존하지 않고 엔티티를 중심으로 쿼리를 작성할 수 있다.
+
+<details>
+<summary>⁉️ </summary>
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ </summary>
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ </summary>
+
+</details>
+
+</details>
+
+---
+
+####    
+
+<details>
+<summary></summary>
+
+<details>
+<summary>⁉️ </summary>
+
+</details>
+
+</details>
+
+---
+
+####    
+
+<details>
+<summary></summary>
+
+<details>
+<summary>⁉️ </summary>
 
 </details>
 
