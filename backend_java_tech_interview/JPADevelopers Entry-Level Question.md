@@ -24,12 +24,12 @@
 - [7. JPQL(Java Persistence Query Language)에 대해 말해주세요.](#객체-지향-쿼리-언어)
     - [7-1. @NamedQuery와 @Query의 차이에 대해 말해주세요.]()
     - [7-2. Criteria API에 대해 말해주세요.]()
-    - [7-4. Hibernate에서 SQL Query를 작성하는 방법에 대해 말해주세요.]()
-    - [7-5. Hibernate에서 Native SQL Query를 작성하는 방법에 대해 말해주세요.]()
-- [8. 트랜잭션, Transaction의 기본 동작에 대해 말해주세요.]()
-    - [8-1. Isolation Level에 대해 말해주세요.]()
-    - [8-1. Propagation에 대해 말해주세요.]()
-    - [8-1. @Transactional 어노테이션을 사용하는 이유에 대해 말해주세요.]()
+    - [7-3. Hibernate에서 SQL Query를 작성하는 방법에 대해 말해주세요.]()
+    - [7-4. Hibernate에서 Native SQL Query를 작성하는 방법에 대해 말해주세요.]()
+- [8. 트랜잭션, Transaction에 대해 말해주세요.](#트랜잭션-transaction)
+    - [8-1. 트랜잭션의 ACID 성질에 대해 말해주세요.]()
+    - [8-2. 트랜잭션 전파, Propagation에 대해 말해주세요.]()
+    - [8-3. @Transactional을 사용하는 이유에 대해 말해주세요.]()
 - [9. 프록시에 대해 말해주세요.]()
     - [9-1. Hibernate에서 프록시는 어떻게 생성되고 사용되는지에 대해 말해주세요.]()
 - [10. 쓰기 지연 SQL 저장소에 대해 말해주세요.]()
@@ -487,13 +487,30 @@ List<Member> results = query.list();
 
 ---
 
-####     
+#### 트랜잭션, Transaction
 
 <details>
-<summary></summary>
+<summary>트랜잭션, Transaction에 대해 말해주세요.</summary>
+
+- JPA에서 트랜잭션은 **데이터베이스의 상태를 변화시키는 작업의 단위**를 의미한다.
+- 즉, 데이터베이스에서 수행되는 일련의 작업으로, 모두 성공적으로 완료되거나 모두 실패해야 하는 단위이다.
 
 <details>
-<summary>⁉️ </summary>
+<summary>⁉️ 트랜잭션의 ACID 성질에 대해 말해주세요.</summary>
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ 트랜잭션 전파, Propagation에 대해 말해주세요.</summary>
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ @Transactional을 사용하는 이유에 대해 말해주세요.</summary>
 
 </details>
 
