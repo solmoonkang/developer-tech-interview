@@ -469,7 +469,17 @@ List<Member> results = session.createQuery(criteriaQuery).getResultList();
 <br>
 
 <details>
-<summary>⁉️ </summary>
+<summary>⁉️ Hibernate에서 Native SQL Query를 사용하는 방법에 대해 말해주세요.</summary>
+
+- 데이터베이스의 원시 SQL 쿼리를 직접 작성하는 방법으로, Hibernate에서는 createSQLQuery 메서드를 사용하여 Native SQL을 실행할 수 있다.
+
+```java
+String SQL = "SELECT * FROM members WHERE name = :name";
+SQLQuery query = session.createSQLQuery(SQL);
+query.setParameter("name", "John");
+query.addEntity(Member.class); // 결과를 Member 엔티티로 매핑
+List<Member> results = query.list();
+```
 
 </details>
 
