@@ -440,6 +440,35 @@ Member findByName(@Param("name") String name);
 <br>
 
 <details>
+<summary>⁉️ Hibernate에서 SQL Query를 작성하는 방법에 대해 말해주세요.</summary>
+
+- HQL, Hibernate Query Language
+  - 객체 지향 쿼리 언어로, 엔티티 객체를 기반으로 쿼리를 작성한다. SQL과 유사하지만, 데이터베이스 테이블이 아닌 엔티티 클래스를 대상으로 한다.
+
+```java
+String HQL = "FROM Member WHERE name = :name";
+Query query = session.createQuery(HQL);
+query.setParameter("name", "John");
+List<Member> results = query.list();
+```
+
+> HQL은 JPQL의 기능을 포함하고 있으며, Hibernate에서만 사용된다.
+
+- Criteria API
+  - 동적 쿼리를 작성할 수 있는 방법으로, 타입 안정성을 제공하여 객체 지향적으로 쿼리를 구성할 수 있다.
+
+```java
+CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+CriteriaQuery<Member> criteriaQuery = criteriaBuilder.createQuery(Member.class);
+Root<Member> memberRoot = criteriaQuery.from(Member.class);
+criteriaQuery.select(memberRoot).where(criteriaBuilder.equal(memberRoot.get("name"), "John"));
+List<Member> results = session.createQuery(criteriaQuery).getResultList();
+```
+</details>
+
+<br>
+
+<details>
 <summary>⁉️ </summary>
 
 </details>
