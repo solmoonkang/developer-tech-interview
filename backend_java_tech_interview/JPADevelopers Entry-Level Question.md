@@ -22,7 +22,7 @@
 - [6. JPA 상속 관계 매핑 전략에 대해 말해주세요.](#jpa-상속-관계-매핑)
     - [6-1. @MappedSuperclass이 무엇이고, 사용하는 이유에 대해 말해주세요.]()
 - [7. JPQL(Java Persistence Query Language)에 대해 말해주세요.](#객체-지향-쿼리-언어)
-    - [7-1. Named Query에 대해 말해주세요.]()
+    - [7-1. @NamedQuery와 @Query의 차이에 대해 말해주세요.]()
     - [7-2. Criteria API에 대해 말해주세요.]()
     - [7-3. Criteria Query를 사용하는 이유에 대해 말해주세요.]()
     - [7-4. Hibernate에서 SQL Query를 작성하는 방법에 대해 말해주세요.]()
@@ -408,7 +408,22 @@ public class AlbumRepository {
 > JPQL은 객체 지향적인 데이터 접근을 가능하게 하며, 데이터베이스 구조에 의존하지 않고 엔티티를 중심으로 쿼리를 작성할 수 있다.
 
 <details>
-<summary>⁉️ </summary>
+<summary>⁉️ @NamedQuery와 @Query의 차이에 대해 말해주세요.</summary>
+
+- **NamedQuery**: 미리 정의된 JPQL 쿼리로, 엔티티 클래스 레벨에서 @NamedQuery를 사용하여 정의한다.
+
+```java
+@NamedQuery(name = "Member.findByName", query = "SELECT m FROM Member m WHERE m.name = :name")
+```
+
+- Query: Spring Data JPA에서 제공하는 어노테이션으로, 메서드에 직접 JPQL 또는 SQL 쿼리를 정의할 수 있다.
+
+```java
+@Query("SELECT m FROM Member m WHERE m.name = :name")
+Member findByName(@Param("name") String name);
+```
+
+> @NamedQuery는 반복적이고 성능이 중요할 때, @Query는 복잡한 쿼리나 동적으로 작성할 때 유용하다.
 
 </details>
 
@@ -430,7 +445,7 @@ public class AlbumRepository {
 
 ---
 
-####    
+####     
 
 <details>
 <summary></summary>
@@ -444,7 +459,7 @@ public class AlbumRepository {
 
 ---
 
-####    
+####     
 
 <details>
 <summary></summary>
