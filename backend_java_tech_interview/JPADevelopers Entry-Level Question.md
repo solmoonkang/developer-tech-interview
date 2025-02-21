@@ -24,7 +24,6 @@
 - [7. JPQL(Java Persistence Query Language)에 대해 말해주세요.](#객체-지향-쿼리-언어)
     - [7-1. @NamedQuery와 @Query의 차이에 대해 말해주세요.]()
     - [7-2. Criteria API에 대해 말해주세요.]()
-    - [7-3. Criteria Query를 사용하는 이유에 대해 말해주세요.]()
     - [7-4. Hibernate에서 SQL Query를 작성하는 방법에 대해 말해주세요.]()
     - [7-5. Hibernate에서 Native SQL Query를 작성하는 방법에 대해 말해주세요.]()
 - [8. 트랜잭션, Transaction의 기본 동작에 대해 말해주세요.]()
@@ -430,7 +429,11 @@ Member findByName(@Param("name") String name);
 <br>
 
 <details>
-<summary>⁉️ </summary>
+<summary>⁉️ Criteria API에 대해 말해주세요.</summary>
+
+- JPQL을 자바 코드로 작성하도록 도와주는 빌더 클래스 API로, 타입-세이프하고 동적 쿼리를 작성할 수 있다.
+  - 타입-세이프로 인해 컴파일 안정성을 제공하며, 컴파일 타임에 오류를 검출할 수 있다.
+  - 코드가 복잡하고 장황하여 직관적이지 못해 이해하기 힘들다는 단점이 있다.
 
 </details>
 
