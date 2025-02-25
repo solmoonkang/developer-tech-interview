@@ -28,8 +28,9 @@
     - [7-4. Hibernate에서 Native SQL Query를 작성하는 방법에 대해 말해주세요.]()
 - [8. 트랜잭션, Transaction에 대해 말해주세요.](#트랜잭션-transaction)
     - [8-1. 트랜잭션의 ACID 성질에 대해 말해주세요.]()
-    - [8-2. @Transactional을 사용하는 이유에 대해 말해주세요.]()
-    - [8-3. 트랜잭션 전파, Propagation에 대해 말해주세요.]()
+    - [8-2. @Transactional에 대해 말해주세요.]()
+    - [8-3. 트랜잭션 격리 수준(Isolation Levels)에 대해 말해주세요.]()
+    - [8-4. 트랜잭션 전파 방식(Propagation)에 대해 말해주세요.]()
 - [9. 프록시에 대해 말해주세요.]()
     - [9-1. Hibernate에서 프록시는 어떻게 생성되고 사용되는지에 대해 말해주세요.]()
 - [10. 쓰기 지연 SQL 저장소에 대해 말해주세요.]()
@@ -514,7 +515,7 @@ List<Member> results = query.list();
 <br>
 
 <details>
-<summary>⁉️ @Transactional을 사용하는 이유에 대해 말해주세요.</summary>
+<summary>⁉️ @Transactional에 대해 말해주세요.</summary>
 
 - JPA에서는 EntityManager를 통해 트랜잭션을 관리하며, 스프링에서는 트랜잭션 관리를 더 쉽게 하기 위해 @Transactional 어노테이션을 제공한다.
 - 메서드 또는 클래스 레벨에 적용하여 해당 메서드 또는 클래스의 모든 작업을 하나의 트랜잭션으로 묶는다.
@@ -540,12 +541,40 @@ public class BankService {
 }
 ```
 
+> 트랜잭션은 데이터의 일관성을 보장하기 위한 최소 단위로, 스프링에서는 @Transactional을 사용해 편리하게 관리할 수 있다.
+
 </details>
 
 <br>
 
 <details>
-<summary>⁉️ 트랜잭션 전파, Propagation에 대해 말해주세요.</summary>
+<summary>⁉️ 트랜잭션 격리 수준(Isolation Levels)에 대해 말해주세요.</summary>
+
+- 격리 수준은 동시에 실행되는 트랜잭션 간의 간섭을 방지하기 위한 설정이다.
+
+
+- **READ_UNCOMMITTED**: 다른 트랜잭션의 변경 사항(커밋되지 않은 데이터)도 읽을 수 있다. 단, Dirty Read 발생이 가능하다.
+- **READ_COMMITTED(DEFAULT)**: 커밋된 데이터만 읽을 수 있다. Dirty Read 방지가 가능하지만, Non-Repeatable Read 발생이 가능하다.
+- **REPEATABLE_READ**: 한 트랜잭션 내에서 동일한 데이터를 여러 번 읽어도 값이 변하지 않는다. Non-Repeatable Read 방지가 가능하지만, Phantom Read 발생이 가능하다.
+- **SERIALIZABLE**: 가장 엄격한 수준으로 트랜잭션을 순차적으로 실행한다. Phantom Read 방지가 가능하지만, 동시성이 낮아지고 성능이 저하된다.
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ 트랜잭션 전파 방식(Propagation)에 대해 말해주세요.</summary>
+
+- 전파 수준은 기존 트랜잭션이 있는 경우 새로운 트랜잭션을 어떻게 실행할지 결정하는 설정이다.
+
+
+- **REQUIRED(DEFAULT)**: 기존 트랜잭션이 있으면 합쳐서 사용하고, 없으면 새로 생성한다.
+- **REQUIRES_NEW**: 기존 트랜잭션을 무시하고 항상 새 트랜잭션을 생성한다.
+- **NESTED**: 기존 트랜잭션 안에서 중첩 트랜잭션을 실행한다. 독립적인 롤백이 가능하다.
+- **SUPPORTED**: 기존 트랜잭션이 있으면 사용하고, 없으면 트랜잭션 없이 실행된다.
+- **NOT_SUPPORTED**: 트랜잭션을 지원하지 않는다. 기존 트랜잭션이 있으면 일시 중단된다.
+- **MANDATORY**: 반드시 기존 트랜잭션 내에서 실행되며, 없으면 예외가 발생한다.
+- **NEVER**: 기존 트랜잭션이 있으면 예외가 발생하고, 없으면 트랜잭션 없이 실행된다.
 
 </details>
 
