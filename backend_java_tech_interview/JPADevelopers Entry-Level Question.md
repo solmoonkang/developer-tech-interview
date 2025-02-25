@@ -28,8 +28,8 @@
     - [7-4. Hibernate에서 Native SQL Query를 작성하는 방법에 대해 말해주세요.]()
 - [8. 트랜잭션, Transaction에 대해 말해주세요.](#트랜잭션-transaction)
     - [8-1. 트랜잭션의 ACID 성질에 대해 말해주세요.]()
-    - [8-2. 트랜잭션 전파, Propagation에 대해 말해주세요.]()
-    - [8-3. @Transactional을 사용하는 이유에 대해 말해주세요.]()
+    - [8-2. @Transactional을 사용하는 이유에 대해 말해주세요.]()
+    - [8-3. 트랜잭션 전파, Propagation에 대해 말해주세요.]()
 - [9. 프록시에 대해 말해주세요.]()
     - [9-1. Hibernate에서 프록시는 어떻게 생성되고 사용되는지에 대해 말해주세요.]()
 - [10. 쓰기 지연 SQL 저장소에 대해 말해주세요.]()
@@ -514,14 +514,38 @@ List<Member> results = query.list();
 <br>
 
 <details>
-<summary>⁉️ 트랜잭션 전파, Propagation에 대해 말해주세요.</summary>
+<summary>⁉️ @Transactional을 사용하는 이유에 대해 말해주세요.</summary>
+
+- JPA에서는 EntityManager를 통해 트랜잭션을 관리하며, 스프링에서는 트랜잭션 관리를 더 쉽게 하기 위해 @Transactional 어노테이션을 제공한다.
+- 메서드 또는 클래스 레벨에 적용하여 해당 메서드 또는 클래스의 모든 작업을 하나의 트랜잭션으로 묶는다.
+- 기본적으로 메서드가 성공적으로 완료되면 커밋하고, 예외가 발생하면 롤백한다.
+
+```java
+@Service
+public class BankService {
+
+    @Transactional
+    public void transferFunds(Long sourceAccountId, Long targetAccountId, Double amount) {
+        withdrawFromAccount(sourceAccountId, amount);
+        depositToAccount(targetAccountId, amount);
+    }
+
+    private void withdrawFromAccount(Long accountId, Double amount) {
+        // 계좌 잔액 확인 후 출근하는 서비스 로직
+    }
+
+    private void depositToAccount(Long accountId, Double amount) {
+        // 계좌에 금액을 추가하는 서비스 로직
+    }
+}
+```
 
 </details>
 
 <br>
 
 <details>
-<summary>⁉️ @Transactional을 사용하는 이유에 대해 말해주세요.</summary>
+<summary>⁉️ 트랜잭션 전파, Propagation에 대해 말해주세요.</summary>
 
 </details>
 
