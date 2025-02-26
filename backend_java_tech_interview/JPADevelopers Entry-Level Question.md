@@ -620,7 +620,10 @@ public class BankService {
 <br>
 
 <details>
-<summary>⁉️ </summary>
+<summary>⁉️ 프록시 객체를 사용할 때 성능상의 이점에 대해 말해주세요.</summary>
+
+- 연관된 엔티티를 즉시 로딩(EAGER)하면 불필요한 데이터까지 조회하게 된다.
+- 프록시 객체를 활용하면 정말 필요한 데이터만 로딩할 수 있어서 성능 최적화가 가능하다.
 
 </details>
 
