@@ -630,7 +630,10 @@ public class BankService {
 <br>
 
 <details>
-<summary>⁉️ </summary>
+<summary>⁉️ 프록시 객체가 어떻게 생성되는지에 대해 말해주세요.</summary>
+
+- Hibernate가 CGLIB 또는 ByteBuddy 같은 라이브러리를 이용하여 동적으로 생성한다.
+- 실제 엔티티 클래스를 상속받은 프록시 클래스를 만들어서 데이터를 조회할 때만 데이터베이스에 접근하도록 처리한다.
 
 </details>
 
