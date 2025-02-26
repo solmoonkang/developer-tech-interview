@@ -594,7 +594,10 @@ public class BankService {
 - Hibernate가 프록시 클래스를 동적으로 생성하여 필드에 접근할 때만 실제 데이터를 조회한다.
 
 <details>
-<summary>⁉️ </summary>
+<summary>⁉️ 프록시 객체를 언제 사용하는지에 대해 말해주세요.</summary>
+
+- 연관된 엔티티를 지연 로딩할 때 사용된다.
+- @OneToMany, @ManyToOne 등의 관계에서 FetchType.LAZY로 설정하면 Hibernate가 프록시 객체를 생성한다.
 
 </details>
 
