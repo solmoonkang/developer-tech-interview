@@ -31,8 +31,11 @@
     - [8-2. @Transactional에 대해 말해주세요.]()
     - [8-3. 트랜잭션 격리 수준(Isolation Levels)에 대해 말해주세요.]()
     - [8-4. 트랜잭션 전파 방식(Propagation)에 대해 말해주세요.]()
-- [9. 프록시에 대해 말해주세요.]()
-    - [9-1. Hibernate에서 프록시는 어떻게 생성되고 사용되는지에 대해 말해주세요.]()
+- [9. JPA 프록시 객체에 대해 말해주세요.](#jpa-프록시-객체)
+    - [9-1. 프록시 객체를 언제 사용하는지에 대해 말해주세요.]()
+    - [9-2. 프록시 객체를 사용할 때 주의할 점에 대해 말해주세요.]()
+    - [9-3. 프록시 객체를 사용할 때 성능상의 이점에 대해 말해주세요.]()
+    - [9-4. 프록시 객체가 어떻게 생성되는지에 대해 말해주세요.]()
 - [10. 쓰기 지연 SQL 저장소에 대해 말해주세요.]()
     - [10-1. Embedded Object에 대해 말해주세요.]()
 
@@ -582,7 +585,45 @@ public class BankService {
 
 ---
 
-####     
+#### JPA 프록시 객체
+
+<details>
+<summary>JPA 프록시 객체에 대해 말해주세요.</summary>
+
+- 프록시는 실제 엔티티를 감싸는 가짜 객체로, 데이터베이스 조회를 지연시키기 위해 사용된다.
+- Hibernate가 프록시 클래스를 동적으로 생성하여 필드에 접근할 때만 실제 데이터를 조회한다.
+
+<details>
+<summary>⁉️ </summary>
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ </summary>
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ </summary>
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ </summary>
+
+</details>
+
+</details>
+
+---
+
+#### 
 
 <details>
 <summary></summary>
