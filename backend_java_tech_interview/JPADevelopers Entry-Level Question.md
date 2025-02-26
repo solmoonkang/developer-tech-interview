@@ -599,12 +599,21 @@ public class BankService {
 - 연관된 엔티티를 지연 로딩할 때 사용된다.
 - @OneToMany, @ManyToOne 등의 관계에서 FetchType.LAZY로 설정하면 Hibernate가 프록시 객체를 생성한다.
 
+> 즉시 로딩, EAGER: 엔티티 조회 시 연관된 모든 엔티티를 JOIN을 사용해 한 번에 조회한다.
+ 
+> 지연 로딩, LAZY: 엔티티 조회 시 프록시 객체를 생성하고, 필요할 때 데이터베이스를 조회한다.
+
 </details>
 
 <br>
 
 <details>
-<summary>⁉️ </summary>
+<summary>⁉️ 프록시 객체를 사용할 때 주의할 점에 대해 말해주세요.</summary>
+
+- 프록시 객체는 실제 엔티티가 아니라서 instanceof 검사 시 주의해야 한다.
+- 프록시 객체를 사용할 때는 영속성 컨텍스트가 유지되어야 한다. 그렇지 않으면 LazyInitializationException이 발생한다.
+
+> 지연 로딩된 프록시 객체를 사용할 때, 영속성 컨텍스트가 종료된 상태에서 데이터에 접근하면 발생하는 예외이다.
 
 </details>
 
