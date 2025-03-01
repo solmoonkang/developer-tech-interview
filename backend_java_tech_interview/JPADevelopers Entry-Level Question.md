@@ -669,6 +669,9 @@ public class BankService {
 <details>
 <summary>⁉️ 배치 처리에 대해 말해주세요.</summary>
 
+- 여러 SQL DML 작업(INSERT, UPDATE, DELETE)을 한 번에 묶어서 처리하는 기법이다.
+- 네트워크 왕복 횟수를 줄여 성능을 향상시키며, 대량 처리 시 유용하지만 트랜잭션 관리와 오류 처리에 주의가 필요하다.
+
 </details>
 
 <br>
