@@ -679,6 +679,9 @@ public class BankService {
 <details>
 <summary>⁉️ Embedded Object에 대해 말해주세요.</summary>
 
+- 엔티티 내에 포함되어 같은 테이블에 저장되는 값 타입 객체이다.
+- @Embeddable과 @Embedded를 사용하여 필드를 그룹화하고 재사용성을 높이며, 별도의 식별자(PK)가 없고 엔티티에 종속된다.
+
 </details>
 
 </details>
