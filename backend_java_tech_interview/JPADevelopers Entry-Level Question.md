@@ -661,10 +661,20 @@ public class BankService {
 #### SQL 실행 최적화
 
 <details>
-<summary></summary>
+<summary>쓰기 지연 SQL 저장소에 대해 말해주세요.</summary>
+
+- 엔티티의 변경 사항을 즉시 데이터베이스에 반영하지 않고, 영속성 컨텍스트에 저장해두었다가 한 번에 데이터베이스로 전송하는 전략이다.
+- 데이터베이스 접근 횟수를 줄여 성능 및 효율성을 향상시키지만, 메모리 관리와 데이터 일관성에 주의가 필요하다.
 
 <details>
-<summary>⁉️ </summary>
+<summary>⁉️ 배치 처리에 대해 말해주세요.</summary>
+
+</details>
+
+<br>
+
+<details>
+<summary>⁉️ Embedded Object에 대해 말해주세요.</summary>
 
 </details>
 
