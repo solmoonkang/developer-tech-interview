@@ -102,9 +102,9 @@ RESTful API 설계를 위해서는 다음과 같은 원칙을 따라야 한다.
 - **선택적 코드 실행 혹은 선택 사항**: 서버가 클라이언트에게 실행할 코드를 제공할 수도 있다.
 
 <details>
-<summary>⁉️ </summary>
+<summary>⁉️ RESTful API에서 URI에 동사를 사용하면 안 되는 이유에 대해 말해주세요.</summary>
 
-- 
+- URI는 리소스를 표현하는 명사로 구성해야 하며, 동사는 HTTP 메서드로 표현해야 한다.
 
 </details>
 
