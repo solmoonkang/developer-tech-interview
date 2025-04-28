@@ -26,7 +26,7 @@ Spring Security는 개발 구조가 Spring 프레임워크 안에서 활용하�
 - **Authentication, 인증**: 해당 사용자가 본인이 맞는지를 확인하는 절차
 - **Authorization, 인가**: 인증된 사용자가 요청한 자원에 접근 가능한지를 결정하는 절차
 
-![Authentication & Authorization](/image_files/Security/authentication&authorization.png)
+![Authentication & Authorization](/backend_knowledge_notes/image_files/Security/authentication&authorization.png)
 
 Spring Security는 기본적으로 인증 절차를 거친 후에 인가 절차를 진행하게 되며, 인가 과정에서 해당 리소스에 대한 접근 권한이 있는지 확인을 하게 된다.
 
@@ -50,7 +50,7 @@ Spring Security는 다양한 기능을 가진 필터들을 10개 이상을 기�
 
 - 이렇게 제공되는 필터들을 Security Filter Chain이라고 한다.
 
-![SecurityFilterChain](/image_files/Security/security-filter-chain.png)
+![SecurityFilterChain](/backend_knowledge_notes/image_files/Security/security-filter-chain.png)
 
 ## PasswordEncoder란?
 
@@ -216,7 +216,7 @@ AuthenticationProvider에서는 실제 인증에 대한 부분을 처리하는�
 
 ---
 
-![SpringSecurity Architecture](/image_files/Security/security-architecture.png)
+![SpringSecurity Architecture](/backend_knowledge_notes/image_files/Security/security-architecture.png)
 
 ### 1. 클라이언트가 로그인을 시도한다.
 

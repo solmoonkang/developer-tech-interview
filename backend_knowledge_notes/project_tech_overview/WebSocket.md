@@ -22,7 +22,7 @@
 
 ---
 
-![WebSocket](/image_files/WebSocket/web-socket.png)
+![WebSocket](/backend_knowledge_notes/image_files/WebSocket/web-socket.png)
 
 웹 소켓은 HTML5에 등장한 실시간 웹 애플리케이션을 위해 설계된 통신 프로토콜이다.
 
@@ -41,7 +41,7 @@
 
 ### Polling 방식
 
-![Polling](/image_files/WebSocket/polling.png)
+![Polling](/backend_knowledge_notes/image_files/WebSocket/polling.png)
 
 Polling은 서버로 일정 주기로 요청을 송신하는 기술이다.
 
@@ -52,7 +52,7 @@ Polling은 서버로 일정 주기로 요청을 송신하는 기술이다.
 
 ### Long Polling 방식
 
-![Long-Polling](/image_files/WebSocket/long-polling.png)
+![Long-Polling](/backend_knowledge_notes/image_files/WebSocket/long-polling.png)
 
 Long Polling은 Polling의 단점을 최소화하기 위해 서버에서 조금 더 대기해서 이벤트를 받는다.
 
@@ -62,7 +62,7 @@ Long Polling은 Polling의 단점을 최소화하기 위해 서버에서 조금 
 
 ### Streaming 방식
 
-![Streaming](/image_files/WebSocket/streaming.png)
+![Streaming](/backend_knowledge_notes/image_files/WebSocket/streaming.png)
 
 Streaming은 서버에 요청을 보내고 끊기지 않은 연결 상태에서 끊임없이 데이터를 수신한다.
 
@@ -76,7 +76,7 @@ Streaming은 서버에 요청을 보내고 끊기지 않은 연결 상태에서 
 
 웹 소켓 또한 핸드-쉐이크 과정이 이루어지고, 소켓 프로토콜이 아닌 HTTP 또는 HTTPS로 통신하게 된다.
 
-![WebSocket Architecture](/image_files/WebSocket/web-socket-architecture.png)
+![WebSocket Architecture](/backend_knowledge_notes/image_files/WebSocket/web-socket-architecture.png)
 
 ```bash
 GET /socket
@@ -107,7 +107,7 @@ Sec-WebSocket-Accept: hsBYongNyong24s99EO10UlZ22C2g=
 
 - Sec-WebSocket-Accept는 요청에서의 Key값을 계산한 값으로 신원 인증에 필요한 헤더이다.
 
-![WebSocket Hand-Shake](/image_files/WebSocket/web-socket-handshake.png)
+![WebSocket Hand-Shake](/backend_knowledge_notes/image_files/WebSocket/web-socket-handshake.png)
 
 위와 같이 핸드-쉐이크 과정이 완료되면 프로토콜이 WS로 변경된다.
 

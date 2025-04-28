@@ -13,7 +13,7 @@ JWT는 일반적으로 클라이언트와 서버 사이에서 통신할 때 권�
 
 JWT는 `헤더(Header)`, `페이로드(Payload)`, `서명(Signature)`로, 다음과 같이 구성되어 있다.
 
-![JWT Component](/image_files/Security/jwt-component.png)
+![JWT Component](/backend_knowledge_notes/image_files/Security/jwt-component.png)
 
 ### 헤더, Header
 
@@ -45,7 +45,7 @@ JWT는 `헤더(Header)`, `페이로드(Payload)`, `서명(Signature)`로, 다음
 
 ---
 
-![JWT Architecture](/image_files/Security/jwt-architecture.png)
+![JWT Architecture](/backend_knowledge_notes/image_files/Security/jwt-architecture.png)
 
 1. 사용자는 ID와 Password를 입력하여 로그인 요청을 한다.
 2. 서버는 회원 데이터베이스에 저장되어 있는 사용자인지 확인을 한다.

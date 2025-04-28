@@ -52,7 +52,7 @@
 
 ---
 
-![Cookie Architecture](/image_files/Security/cookie-architecture.png)
+![Cookie Architecture](/backend_knowledge_notes/image_files/Security/cookie-architecture.png)
 
 1. 클라이언트가 페이지를 요청한다. (사용자가 웹 사이트에 접근한다.)
 2. 웹 서버에서는 쿠키를 생성한다.
@@ -87,7 +87,7 @@
 
 ---
 
-![Session Architecture](/image_files/Security/session-architecture.png)
+![Session Architecture](/backend_knowledge_notes/image_files/Security/session-architecture.png)
 
 1. 클라이언트가 페이지를 요청한다.
 2. 서버는 접근한 클라이언트의 Request-Header인 쿠키를 확인하여 클라이언트의 세션ID를 확인한다.

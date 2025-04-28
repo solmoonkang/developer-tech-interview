@@ -16,7 +16,7 @@ Nginx는 트래픽이 많은 웹 사이트의 서버를 도와주는 비동기 �
 - 그래서 이를 해결하기 위해 만들어진 것이 Apache Server이다.
 - Apache Server는 요청이 들어오면 커넥션을 생성한다.
 
-![NGINX PREFORK](/image_files/NGINX/nginx-prefork.png)
+![NGINX PREFORK](/backend_knowledge_notes/image_files/NGINX/nginx-prefork.png)
 
 하지만 프로세스를 생성하는 과정이 오랜 시간이 걸려 프로세스를 미리 만드는 PREFORK 방식을 이용한다.
 
@@ -30,7 +30,7 @@ Nginx는 트래픽이 많은 웹 사이트의 서버를 도와주는 비동기 �
 
 하지만 1999년에 들어서면서 컴퓨터가 많이 보급됨에 따라 요청이 많아져서 서버에 동시에 연결된 커넥션이 많을 때 더 이상 새로운 커넥션을 생성하지 못하게 되었다.
 
-![NGINX C10K Problem](/image_files/NGINX/nginx-c10k.png)
+![NGINX C10K Problem](/backend_knowledge_notes/image_files/NGINX/nginx-c10k.png)
 
 이를 C10K라고 하는데, 이는 커넥션 10000개의 문제라는 의미로, 다음과 같은 문제점이 있었다.
 
@@ -45,7 +45,7 @@ Nginx는 트래픽이 많은 웹 사이트의 서버를 도와주는 비동기 �
 - Nginx는 웹 서버이기는 하지만 Apache 서버를 완전히 대체할 목적은 아니었다.
 - Apache 서버가 지닌 구조적 한계를 Nginx를 사용하면서 극복하려고 했다.
 
-![Apache & NGINX](/image_files/NGINX/apache+nginx.png)
+![Apache & NGINX](/backend_knowledge_notes/image_files/NGINX/apache+nginx.png)
 
 수많은 동시 커넥션을 Nginx가 유지하고, Nginx도 웹 서버이기에 정적 파일에 대한 요청은 스스로 처리했다.
 
@@ -79,10 +79,10 @@ Nginx에서는 이러한 커넥션 형성과 제거, 그리고 새로운 요청�
 
 요청이 없을 때는 프로세스를 방치시키는 Apache 서버보다 훨씬 효율적으로 자원을 사용할 수 있다.
 
-![Apache: 스레드 방식](/image_files/NGINX/apache-thread.png)
+![Apache: 스레드 방식](/backend_knowledge_notes/image_files/NGINX/apache-thread.png)
 
 
-![Nginx: Evnet-Driven 방식](/image_files/NGINX/nginx-event.png)
+![Nginx: Evnet-Driven 방식](/backend_knowledge_notes/image_files/NGINX/nginx-event.png)
 
 Apache의 스레드 기반의 방식은 하나의 커넥션 당 하나의 스레드를 잡아먹게 된다.
 
@@ -113,13 +113,13 @@ Nginx는 기본적으로 동적 컨텐츠를 처리할 수 없다는 단점을 �
 
 ---
 
-![동시 커넥션 수당 메모리 사용률](/image_files/NGINX/memory-usage.png)
+![동시 커넥션 수당 메모리 사용률](/backend_knowledge_notes/image_files/NGINX/memory-usage.png)
 
 동시 커넥션 수당 메모리 사용률
 
 Apache 서버에 비해 Nginx는 동시 커넥션 수가 늘어나도 메모리 사용률이 낮고 일정함을 확인할 수 있다.
 
-![동시 커넥션 수에 따라 처리되는 초당 요청 수](/image_files/NGINX/requests-per-second.png)
+![동시 커넥션 수에 따라 처리되는 초당 요청 수](/backend_knowledge_notes/image_files/NGINX/requests-per-second.png)
 
 동시 커넥션 수에 따라 처리되는 초당 요청 수
 

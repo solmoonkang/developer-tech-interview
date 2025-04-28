@@ -1,4 +1,4 @@
-![Static Content & Dynamic Content](/image_files/WebServer%20&%20WebApplicationServer/static&dynamic.png)
+![Static Content & Dynamic Content](/backend_knowledge_notes/image_files/WebServer%20&%20WebApplicationServer/static&dynamic.png)
 
 ## 정적 페이지, Static Pages
 
@@ -82,7 +82,7 @@ WAS는 프로그램 실행 환경과 DB 접속 기능을 제공하며, 여러 �
 
 ---
 
-![Web Application Server Architecture](/image_files/WebServer%20&%20WebApplicationServer/web-application-server.png)
+![Web Application Server Architecture](/backend_knowledge_notes/image_files/WebServer%20&%20WebApplicationServer/web-application-server.png)
 
 ## 웹 서버와 웹 애플리케이션 서버의 필요성
 
@@ -149,7 +149,7 @@ WS를 WAS 앞에 두어 필요한 WAS들을 WS에 플러그인 형태로 설정�
 
 ---
 
-![Web Server Architecture](/image_files/WebServer%20&%20WebApplicationServer/web-server.png)
+![Web Server Architecture](/backend_knowledge_notes/image_files/WebServer%20&%20WebApplicationServer/web-server.png)
 
 웹 서버 아키텍처는 다양한 구조로 동작할 수 있다.
 

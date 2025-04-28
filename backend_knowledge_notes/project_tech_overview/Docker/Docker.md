@@ -15,7 +15,7 @@
 
 ---
 
-![Docker Architecture](/image_files/Docker%20&%20Docker-Compose/docker-architecture.png)
+![Docker Architecture](/backend_knowledge_notes/image_files/Docker%20&%20Docker-Compose/docker-architecture.png)
 
 ### Docker Client, 클라이언트
 
@@ -61,7 +61,7 @@
 
 예를 들어, 도커 이미지와 도커 컨테이너는 운영체제에서의 프로그램과 프로세스 관계와 비슷하다.
 
-![DockerImage & DockerContainer](/image_files/Docker%20&%20Docker-Compose/docker-image&docker-container.png)
+![DockerImage & DockerContainer](/backend_knowledge_notes/image_files/Docker%20&%20Docker-Compose/docker-image&docker-container.png)
 
 ### DockerFile → DockerImage
 
